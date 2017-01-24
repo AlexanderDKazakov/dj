@@ -30,6 +30,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#TEMPLATES_DIR
+
+TEMPLATES_DIRS = (
+    '/home/alexander/pyproject/djangoenv/bin/loesk_app/templates',
+    '/home/alexander/pyproject/djangoenv/bin/call/templates',
+    '/home/alexander/pyproject/djangoenv/bin/loginsys/templates',
+)
+
 
 # Application definition
 
@@ -41,8 +49,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'call',
-    # 'crispy_forms',
-    # 'loginsys',
+    'crispy_forms',
+    'loginsys',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -107,3 +115,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
