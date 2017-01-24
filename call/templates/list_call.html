@@ -1,0 +1,47 @@
+{% extends 'heading.html' %}
+{% block content %}
+{% if request.user.is_authenticated %}
+<a href="{% url 'call.views.new_call' %}"><button class="myButton">Новый звонок</button></a>
+<a href="{% url 'call.views.data_out_csv' %}"><button class="myButton">Отчёт</button></a>
+{#<a href="{% url 'call.views.data_out_pdf' %}"><button class="myButton">Отчёт PDF</button></a>#}
+<table border="0" align="center" width="100%" margin-top = 2%>
+    <tr>
+        <td>
+            <h4>ФИО абонента</h4>
+        </td>
+        <td>
+            <h4>Дата обращения</h4>
+        </td>
+        <td>
+            <h4>Цель звонка</h4>
+        </td>
+        <td>
+            <h4>Требуется подготовить ответ</h4>
+        </td>
+        <td>
+            <h4>Принял</h4>
+        </td>
+    </tr>
+    <tr style="border-bottom: 1px solid #000;"></tr>
+    {% for call in args.list_call %}
+        <tr>
+            <td>
+                <h4><a href="/call/get/{{ call.id }}">{{ call.call_title }}</a></h4>
+            </td>
+            <td>
+                <h4> {{ call.call_date }} </h4>
+            </td>
+            <td>
+                <h4> {{ call.call_aim }} </h4>
+            </td>
+            <td>
+                <h4> {{ call.call_otvet }} </h4>
+            </td>
+            <td>
+                <h4> {{ call.call_user_man }} </h4>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% endblock content %}

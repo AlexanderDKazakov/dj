@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ЛОЭСК</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="icon" type="image/png" href="{% static "img/loesk.jpeg" %}" />
+</head>
+<body>
+{% if request.user.is_authenticated %}
+    <table border="0" class="myTable">
+        <tr>
+            <td rowspan="2" width="5%"><a href="/"><img src="{% static "img/loesk.jpeg" %}" alt="LOESK" width="85" height="85"></a></td>
+            <td bgcolor="#ff9400" align="center"><font color="#ffffff" face="Times" size="5">Филиал: {{ args.user_filial }} </font></td>
+            <td rowspan="2" align="center" width="10%"> {{ args.user_group }} </td>
+            <td rowspan="2" align="center" width="10%"><a href="/auth/logout">Выйти ({{ args.username }})</a></td>
+        </tr>
+        <tr>
+            <td bgcolor="#ff9400" align="center"><font color="#ffffff" face="Times">Отдел: {{ args.user_otdel }}</font></td>
+        </tr>
+    </table>
+    {% block content %}{% endblock %}
+    {% block login %}{% endblock %}
+{% else %}
+{# Need to redo #}
+{#    <meta http-equiv="refresh" content="0;url=/auth/login">#}
+
+{% endif %}
+</body>
+</html>

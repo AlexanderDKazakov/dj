@@ -1,14 +1,187 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5b254265-8115-4b5b-bbee-26fa737479eb" name="Default" comment="Transfering complete">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/loginsys/templates/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/loginsys/urls.py" />
+    <list default="true" id="5b254265-8115-4b5b-bbee-26fa737479eb" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLE/форма качества 4.9.xlsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/static/img/loesk.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/static/css/app.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/static/css/bootstrap-theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/static/css/bootstrap-theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/static/css/bootstrap-theme.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/static/css/bootstrap-theme.min.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/static/css/bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/static/css/bootstrap.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/static/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/static/css/bootstrap.min.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/templates/heading.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/templates/list_call.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/templates/myview.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/templates/new_call.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/templates/one_call.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/base.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/bootstrap.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/compatibility.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/exceptions.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/helper.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/layout.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/layout_slice.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/accordion-group.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/accordion.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/betterform.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/display_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/errors.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/errors_formset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/field.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/alert.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/baseinput.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/button.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/buttonholder.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/checkboxselectmultiple.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/checkboxselectmultiple_inline.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/div.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/field_errors.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/field_errors_block.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/field_with_buttons.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/fieldset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/formactions.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/help_text.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/help_text_and_errors.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/multifield.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/prepended_appended_text.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/radioselect.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/radioselect_inline.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/tab-link.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/tab.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/layout/uneditable_input.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/table_inline_formset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/uni_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/uni_formset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/whole_uni_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap/whole_uni_formset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/accordion-group.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/accordion.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/betterform.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/display_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/errors.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/errors_formset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/field.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/inputs.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/alert.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/baseinput.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/button.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/buttonholder.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/checkboxselectmultiple.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/checkboxselectmultiple_inline.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/div.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/field_errors.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/field_errors_block.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/field_with_buttons.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/fieldset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/formactions.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/help_text.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/help_text_and_errors.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/inline_field.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/multifield.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/prepended_appended_text.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/radioselect.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/radioselect_inline.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/tab-link.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/tab.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/layout/uneditable_input.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/table_inline_formset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/uni_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/uni_formset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/whole_uni_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap3/whole_uni_formset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/accordion-group.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/accordion.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/betterform.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/display_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/errors.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/errors_formset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/field.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/inputs.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/alert.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/baseinput.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/button.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/buttonholder.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/checkboxselectmultiple.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/checkboxselectmultiple_inline.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/div.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/field_errors.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/field_errors_block.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/field_with_buttons.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/fieldset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/formactions.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/help_text.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/help_text_and_errors.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/inline_field.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/multifield.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/prepended_appended_text.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/radioselect.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/radioselect_inline.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/tab-link.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/tab.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/layout/uneditable_input.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/table_inline_formset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/uni_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/uni_formset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/whole_uni_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/bootstrap4/whole_uni_formset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/uni_form/betterform.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/uni_form/display_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/uni_form/errors.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/uni_form/errors_formset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/uni_form/field.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/uni_form/field.strict.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/uni_form/layout/baseinput.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/uni_form/layout/buttonholder.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/uni_form/layout/div.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/uni_form/layout/fieldset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/uni_form/layout/multifield.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/uni_form/multifield.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/uni_form/uni_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/uni_form/uni_formset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/uni_form/whole_uni_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templates/uni_form/whole_uni_formset.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templatetags/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templatetags/crispy_forms_field.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templatetags/crispy_forms_filters.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templatetags/crispy_forms_tags.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/templatetags/crispy_forms_utils.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/tests/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/tests/compatibility.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/tests/conftest.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/tests/forms.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/tests/templates/crispy_render_template.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/tests/templates/custom_field_template.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/tests/templates/custom_form_template.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/tests/templates/custom_form_template_with_context.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/tests/test_dynamic_api.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/tests/test_form_helper.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/tests/test_layout.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/tests/test_layout_objects.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/tests/test_settings.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/tests/test_tags.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/tests/test_utils.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/tests/urls.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/crispy_forms/utils.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/django_crispy_forms-1.6.1.dist-info/DESCRIPTION.rst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/django_crispy_forms-1.6.1.dist-info/LICENSE.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/django_crispy_forms-1.6.1.dist-info/METADATA" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/django_crispy_forms-1.6.1.dist-info/RECORD" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/django_crispy_forms-1.6.1.dist-info/WHEEL" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/django_crispy_forms-1.6.1.dist-info/metadata.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/django_crispy_forms-1.6.1.dist-info/top_level.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/loginsys/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/loginsys/admin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/loginsys/migrations/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/loginsys/models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/loginsys/tests.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/loginsys/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/views.py" afterPath="$PROJECT_DIR$/call/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loesk_app/settings.py" afterPath="$PROJECT_DIR$/loesk_app/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,11 +199,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loesk_app/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="249">
               <caret line="90" column="13" lean-forward="true" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="heading.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/call/templates/heading.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -124,18 +307,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loesk_app/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -205,66 +376,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="pyproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pyproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pyproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="loginsys" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pyproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pyproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="loesk_app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pyproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pyproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="call" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pyproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pyproject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="call" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -571,7 +682,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485172622499</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Moving complete">
+      <created>1485249824729</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1485249824729</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -606,7 +724,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add adresses to loesk_app/url.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add adresses to loesk_app/url.py" />
+    <MESSAGE value="Moving complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moving complete" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -820,6 +939,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
           <caret line="90" column="13" lean-forward="true" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/call/templates/heading.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
           <folding />
         </state>
       </provider>
