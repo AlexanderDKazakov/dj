@@ -30,21 +30,24 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-#TEMPLATES_DIR
-
 TEMPLATES_DIRS = (
     '/home/alexander/pyproject/djangoenv/bin/loesk_app/templates',
     '/home/alexander/pyproject/djangoenv/bin/call/templates',
     '/home/alexander/pyproject/djangoenv/bin/loginsys/templates',
 )
 
-
+## TITLE ADMIN PANEL
+GRAPPELLI_ADMIN_TITLE = 'Администрирование "ЛОЭСК" DJANGO'
+GRAPPELLI_SWITCH_USER = True
+GRAPPELLI_INDEX_DASHBOARD = 'loesk_app.dashboard.CustomIndexDashboard'
 # Application definition
 
 INSTALLED_APPS = (
+    'django.contrib.contenttypes',
+    'grappelli.dashboard',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -52,6 +55,8 @@ INSTALLED_APPS = (
     'crispy_forms',
     'loginsys',
 )
+
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

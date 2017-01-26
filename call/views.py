@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
-
 from django.shortcuts import render
 from django.shortcuts import render_to_response, redirect
 from call.models import Call, User
 from django.contrib import auth
-from django.core.urlresolvers import reverse
 ### For form
 from .forms import MessageForm
 # from .forms import CallForm
@@ -20,14 +18,13 @@ import csv
 
 def list_call(request):
     args = {}
-    args['list_call'] = Call.objects.all()
+    args['list_call'] = Call.objects.all().order_by('-call_date')
     args['username'] = auth.get_user(request).username
     args['id'] = auth.get_user(request).id
     if args['id'] == None:
-        # return render(request, 'list_call.html', {'args': args})
-        # return redirect(login)
-        # return redirect(reverse('login'))
         return redirect('loginsys.views.login')
+    elif args['username'] == 'admin' or request.user.groups.values_list('name', flat=True).first() == 'Администратор':
+        return render(request, 'list_call.html', {'args': args})
     else:
         user_id = args['id']
         user = User.objects.get(pk=user_id)
@@ -59,20 +56,23 @@ def new_call(request):
         form = MessageForm(request.POST)
         # form = CallForm(request.POST)
         if form.is_valid():
-            data_from_form = form.cleaned_data
-            form = Call(
-                call_title=data_from_form['call_title'],
-                call_aim=data_from_form['call_aim'],
-                call_date=data_from_form['call_date'],
-                call_face=data_from_form['call_face'],
-                call_otvet=data_from_form['call_otvet'],
-                call_user_man=data_from_form['call_user_man'],
-            )
-            form.save()
+            call = form.save(commit=False)
+            ####
+            # data_from_form = form.cleaned_data
+            # form = Call(
+            #     call_title=data_from_form['call_title'],
+            #     call_aim=data_from_form['call_aim'],
+            #     call_date=data_from_form['call_date'],
+            #     call_entite=data_from_form['call_entite'],
+            #     call_otvet=data_from_form['call_otvet'],
+            #     call_user_man=data_from_form['call_user_man'],
+            # )
+            ###
+            call.save()
             return redirect('/')
     else:
         form = MessageForm(initial={'call_user_man': args['username']})
-    return render(request, 'new_call.html', {'form': form, 'args': args})
+        return render(request, 'new_call.html', {'form': form, 'args': args})
 
 
 def data_out_csv(request):
@@ -140,7 +140,7 @@ def data_out_csv(request):
     writer.writerow(
         ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',
          '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'])
-    calls = Call.objects.all().values_list('id','call_title', 'call_date', 'call_face', 'call_otvet', 'call_aim')
+    calls = Call.objects.all().values_list('id','call_title', 'call_date', 'call_entite', 'call_otvet', 'call_aim')
     for call in sorted(calls):
         # writer.writerow(call)
         writer.writerow(
@@ -155,24 +155,6 @@ def data_out_csv(request):
                 ]
         )
     return response
-
-
-# def data_out_pdf(request):
-#     # Create the HttpResponse object with the appropriate PDF headers.
-#     response = HttpResponse(content_type='application/pdf')
-#     response['Content-Disposition'] = 'attachment; filename="somefilename.pdf"'
-#
-#     # Create the PDF object, using the response object as its "file."
-#     p = canvas.Canvas(response)
-#
-#     # Draw things on the PDF. Here's where the PDF generation happens.
-#     # See the ReportLab documentation for the full list of functionality.
-#     p.drawString(100, 100, "Hello world.")
-#
-#     # Close the PDF object cleanly, and we're done.
-#     p.showPage()
-#     p.save()
-#     return response
 
 ########## ITS COULD BE WORKING LIKE SEARCHING...
 ###

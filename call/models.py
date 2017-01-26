@@ -5,29 +5,73 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-AIM_CALL = (
-    ('Оказание услуг по передаче электрической энергии', 'Оказание услуг по передаче электрической энергии'),
-    ('Осуществление технологического присоединения', 'Осуществление технологического присоединения'),
-    ('Коммерческий учет электрической энергии', 'Коммерческий учет электрической энергии'),
-    ('Качество обслуживания потребителей', 'Качество обслуживания потребителей'),
-    ('Техническое обслуживание электросетевых объектов', 'Техническое обслуживание электросетевых объектов')
-)
 
-ABONENT = (
-    ('Физическое лицо', 'Физическое лицо'),
-    ('Юридическое лицо', 'Юридическое лицо')
-)
+class Aim_call(models.Model):
+    class Meta:
+        db_table = "aim_call"
+    ac_name      = models.CharField(max_length=200, verbose_name='Цель звонка', blank=True, null=True)
+
+    def __str__(self):
+        # return 'aim_call: {}'.format(self.ac_name)
+        return self.ac_name
+
+
+class legalEntity(models.Model):
+    class Meta:
+        db_table = "abonent"
+    le_type      = models.CharField(max_length=200, verbose_name='Тип лица (Физический/Юридический)', blank=True, null=True)
+
+    def __str__(self):
+        return self.le_type
+
+
+class Res(models.Model):
+    class Meta:
+        db_table = "res"
+    res_name      = models.CharField(max_length=200, verbose_name='РЭС', blank=True, null=True)
+
+    def __str__(self):
+        return self.res_name
+
+
+class Otdel(models.Model):
+    class Meta:
+        db_table = "otdel"
+    otdel_name      = models.CharField(max_length=200, verbose_name='Отдел', blank=True, null=True)
+
+    def __str__(self):
+        return self.otdel_name
+
+
+class Filial(models.Model):
+    class Meta:
+        db_table = "filial"
+    filial_name      = models.CharField(max_length=200, verbose_name='Филиал', blank=True, null=True)
+
+    def __str__(self):
+        return self.filial_name
+
+
+class ActOperator(models.Model):
+    class Meta:
+        db_table = "actoperator"
+    actoperator_name = models.CharField(max_length=200, verbose_name='Действия оператора', blank=True, null=True)
+
+    def __str__(self):
+        return self.actoperator_name
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     user_otchestvo = models.CharField(verbose_name='Отчество', max_length=20)
-    user_filial = models.CharField(verbose_name='Филиал', max_length=100)
-    user_res = models.CharField(verbose_name='РЭС', max_length=100)
-    user_otdel = models.CharField(verbose_name='Отдел', max_length=100)
+    user_filial = models.ForeignKey(Filial, null=True, blank=True, verbose_name='Филиал')
+    user_res = models.ForeignKey(Res, null=True, blank=True, verbose_name='РЭС')
+    user_otdel = models.ForeignKey(Otdel, null=True, blank=True, verbose_name='Отдел')
     user_numphone = models.CharField(verbose_name='Номер телефона', max_length=20)
 
     def __str__(self):
-        return 'Users: {}'.format(self.user.username)
+        # return 'Users: {}'.format(self.user.username)
+        return self.user.username
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
@@ -38,21 +82,19 @@ def create_user_profile(sender, instance, created, **kwargs):
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
 
+
 class Call(models.Model):
     class Meta:
         db_table = "call"
         ordering = ['-call_date']
     call_title      = models.CharField(max_length=200, verbose_name='ФИО абонента')
-    call_face       = models.CharField(max_length=30, verbose_name='Абонент', choices=ABONENT, default='Физическое лицо')
-    call_otvet      = models.BooleanField(default=False, verbose_name='Требуется подготовить ответ?',)
-    call_aim        = models.CharField(max_length=100, verbose_name='Цель звонка', choices=AIM_CALL, default='Качество обслуживания потребителей')
-    call_date       = models.DateTimeField(default=timezone.now)
-    # call_user       = models.ForeignKey(settings.AUTH_USER_MODEL, null=True)
+    call_entite       = models.ForeignKey(legalEntity, verbose_name='Лицо', default=id(1))
+    call_otvet      = models.BooleanField(default=False, verbose_name='Требуется подготовить ответ?')
+    call_aim        = models.ForeignKey(Aim_call, verbose_name='Цель звонка', default=id(1))
+    call_act        = models.ForeignKey(ActOperator, verbose_name='Действие оператора', default=id(1))
+    call_kontact    = models.CharField(max_length=150, verbose_name='Контакты для связи', blank=True, null=True)
+    call_date       = models.DateTimeField(default=timezone.now, verbose_name='Время звонка')
     call_user_man   = models.CharField(max_length=50, verbose_name='Логин оператора:', blank=True, null=True)
 
-    def publish(self):
-        self.published_date = timezone.now()
-        self.save()
-
     def __str__(self):
-        return 'Calls: {}'.format(self.call_title)
+        return self.call_title
