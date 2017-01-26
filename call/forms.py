@@ -69,12 +69,15 @@ class MessageForm(forms.ModelForm):
     class Meta:
         model = Call
         fields = ['call_title',
-                  "call_entite",
+                  'call_entite',
                   'call_aim',
                   'call_otvet',
+                  'call_kontact',
                   'call_date',
                   'call_user_man',
                   'call_act',
+                  'call_user_man_filial',
+                  'call_user_man_otdel',
                   ]
     # Uni-form
     helper = FormHelper()
@@ -85,15 +88,18 @@ class MessageForm(forms.ModelForm):
     helper.form_method = 'post'
     helper.layout = Layout(
         Field('call_entite'),
-        Field('call_title', placeholder="ФИО Абонента/Название организации"),
+        Field('call_title', placeholder='ФИО Абонента/Название организации'),
         Field('call_aim'),
         Field('call_otvet'),
+        Field('call_kontact', placeholder='Email/телефон'),
         Field('call_act'),
         Field('call_date', readonly=True),
         Field('call_user_man', readonly=True),
+        Field('call_user_man_filial', readonly=True),
+        Field('call_user_man_otdel', readonly=True),
         FormActions(
-            Submit('submit', 'Добавить звонок', css_class='btn btn-primary'),
-            Button('cancel', 'Назад', onclick='history.go(-1);')
+            Submit('submit', 'Добавить звонок', css_class='btn btn-success btn-lg'),
+            Button('cancel', 'Назад', css_class='btn btn-default btn-lg', onclick='history.go(-1);')
         )
     )
 

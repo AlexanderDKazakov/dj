@@ -1,9 +1,8 @@
 {% extends 'heading.html' %}
 {% block content %}
-{% if request.user.is_authenticated %}
-<a href="{% url 'call.views.new_call' %}"><button class="myButton">Новый звонок</button></a>
-<a href="{% url 'call.views.data_out_csv' %}"><button class="myButton">Отчёт</button></a>
-{#<a href="{% url 'call.views.data_out_pdf' %}"><button class="myButton">Отчёт PDF</button></a>#}
+<br>
+<a href="{% url 'call.views.new_call' %}"><button class="btn btn-success btn-lg">Новый звонок</button></a>
+<a href="{% url 'call.views.data_out_csv' %}"><button class="btn btn-default btn-lg">Отчёт</button></a>
 <table border="0" align="center" width="100%" margin-top = 2%>
     <tr>
         <td>
@@ -43,5 +42,4 @@
         </tr>
     {% endfor %}
 </table>
-{% endif %}
 {% endblock content %}

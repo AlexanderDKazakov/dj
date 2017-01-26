@@ -11,11 +11,17 @@ from call.models import Call, Profile, Filial, legalEntity, Aim_call, Res, Otdel
 
 class CallAdmin(admin.ModelAdmin):
 
-    list_filter = ['call_entite','call_date', 'call_user_man']
+    list_filter = ['call_entite',
+                   'call_date',
+                   'call_user_man',
+                   'call_user_man_filial',
+                   'call_user_man_otdel',
+                   ]
     list_display = ['id',
                     'call_title',
                     'call_otvet',
-                    'call_date']
+                    'call_date',
+                    ]
     # list_editable = ['id']
 
 admin.site.register(Call, CallAdmin)

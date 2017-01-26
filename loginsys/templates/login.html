@@ -1,243 +1,79 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <style>
     input[type=text], input[type=password] {
-        padding: 0 15px;
+{#        padding: 0 15px;#}
         margin-bottom: 25px;
-        width: 200px;
+{#        width: 200px;#}
         height: 50px;
-        background: rgba(0, 0, 0, 0.16);
-        background: wheat;
+        background: whitesmoke;
         border: 0;
-        border-radius: 50px;
+        border-radius: 15px;
         -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.06);
         box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.06);
     }
-    label {
-        margin-left: 30%;
-        width: 100px;
-        line-height: 17px;
-        padding-right: 19px;
-        text-align: left;
-    }
+    input{display:inline-block}
     .logform{
-        margin-top: 5%;
-    }
-    .logerr{
-        margin-right: 10%;
-    }
-    .myButton{
-        margin-left: 43%;
+        margin-left: 44.6%;
+        margin-right: auto;
     }
 </style>
-{#<style>#}
-{#    /*#}
-{# * Specific styles of signin component#}
-{# */#}
-{#/*#}
-{# * General styles#}
-{# */#}
-{#body, html {#}
-{#    height: 100%;#}
-{#    background-repeat: no-repeat;#}
-{#    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));#}
-{#}#}
-{##}
-{#.card-container.card {#}
-{#    max-width: 350px;#}
-{#    padding: 40px 40px;#}
-{#}#}
-{##}
-{#.btn {#}
-{#    font-weight: 700;#}
-{#    height: 36px;#}
-{#    -moz-user-select: none;#}
-{#    -webkit-user-select: none;#}
-{#    user-select: none;#}
-{#    cursor: default;#}
-{#}#}
-{##}
-{#/*#}
-{# * Card component#}
-{# */#}
-{#.card {#}
-{#    background-color: #F7F7F7;#}
-{#    /* just in case there no content*/#}
-{#    padding: 20px 25px 30px;#}
-{#    margin: 0 auto 25px;#}
-{#    margin-top: 50px;#}
-{#    /* shadows and rounded borders */#}
-{#    -moz-border-radius: 2px;#}
-{#    -webkit-border-radius: 2px;#}
-{#    border-radius: 2px;#}
-{#    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);#}
-{#    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);#}
-{#    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);#}
-{#}#}
-{##}
-{#.profile-img-card {#}
-{#    width: 96px;#}
-{#    height: 96px;#}
-{#    margin: 0 auto 10px;#}
-{#    display: block;#}
-{#    -moz-border-radius: 50%;#}
-{#    -webkit-border-radius: 50%;#}
-{#    border-radius: 50%;#}
-{#}#}
-{##}
-{#/*#}
-{# * Form styles#}
-{# */#}
-{#.profile-name-card {#}
-{#    font-size: 16px;#}
-{#    font-weight: bold;#}
-{#    text-align: center;#}
-{#    margin: 10px 0 0;#}
-{#    min-height: 1em;#}
-{#}#}
-{##}
-{#.reauth-email {#}
-{#    display: block;#}
-{#    color: #404040;#}
-{#    line-height: 2;#}
-{#    margin-bottom: 10px;#}
-{#    font-size: 14px;#}
-{#    text-align: center;#}
-{#    overflow: hidden;#}
-{#    text-overflow: ellipsis;#}
-{#    white-space: nowrap;#}
-{#    -moz-box-sizing: border-box;#}
-{#    -webkit-box-sizing: border-box;#}
-{#    box-sizing: border-box;#}
-{#}#}
-{##}
-{#.form-signin #inputEmail,#}
-{#.form-signin #inputPassword {#}
-{#    direction: ltr;#}
-{#    height: 44px;#}
-{#    font-size: 16px;#}
-{#}#}
-{##}
-{#.form-signin input[type=email],#}
-{#.form-signin input[type=password],#}
-{#.form-signin input[type=text],#}
-{#.form-signin button {#}
-{#    width: 100%;#}
-{#    display: block;#}
-{#    margin-bottom: 10px;#}
-{#    z-index: 1;#}
-{#    position: relative;#}
-{#    -moz-box-sizing: border-box;#}
-{#    -webkit-box-sizing: border-box;#}
-{#    box-sizing: border-box;#}
-{#}#}
-{##}
-{#.form-signin .form-control:focus {#}
-{#    border-color: rgb(104, 145, 162);#}
-{#    outline: 0;#}
-{#    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);#}
-{#    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);#}
-{#}#}
-{##}
-{#.btn.btn-signin {#}
-{#    /*background-color: #4d90fe; */#}
-{#    background-color: rgb(104, 145, 162);#}
-{#    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/#}
-{#    padding: 0px;#}
-{#    font-weight: 700;#}
-{#    font-size: 14px;#}
-{#    height: 36px;#}
-{#    -moz-border-radius: 3px;#}
-{#    -webkit-border-radius: 3px;#}
-{#    border-radius: 3px;#}
-{#    border: none;#}
-{#    -o-transition: all 0.218s;#}
-{#    -moz-transition: all 0.218s;#}
-{#    -webkit-transition: all 0.218s;#}
-{#    transition: all 0.218s;#}
-{#}#}
-{##}
-{#.btn.btn-signin:hover,#}
-{#.btn.btn-signin:active,#}
-{#.btn.btn-signin:focus {#}
-{#    background-color: rgb(12, 97, 33);#}
-{#}#}
-{##}
-{#.forgot-password {#}
-{#    color: rgb(104, 145, 162);#}
-{#}#}
-{##}
-{#.forgot-password:hover,#}
-{#.forgot-password:active,#}
-{#.forgot-password:focus{#}
-{#    color: rgb(12, 97, 33);#}
-{#}#}
-{#</style>#}
-
 <head>
     <meta charset="UTF-8">
     <title>ЛОЭСК</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
 </head>
 <body>
-{#<div class="page-header">#}
-{#    {% if user.is_authenticated %}{% endif %}#}
-{#</div>#}
-<table border="0" width="100%" bgcolor="">
+<table border="0" width="100%" align="center">
     <tr>
-        <td rowspan="2" width="5%"><a href="/"><img src="{% static "img/loesk.jpeg" %}" alt="LOESK" width="85" height="85"></a></td>
-        <td bgcolor="#ff9400" align="center"></td>
+        <td width="3%"></td>
+        <td width="94%">
+            <a href="/"><img src="{% static "img/loesk.jpeg" %}" alt="LOESK" width="125" height="125"></a>
+        </td>
+        <td width="3%"></td>
     </tr>
     <tr>
-        <td bgcolor="#ff9400" align="center"></td>
-    </tr>
-</table>
-</div>
-    <td>
-        <div class="logform">
-            <form action="/auth/login" method="post">
+    <td width="3%"></td>
+        <td width="94%">
+        <form action="/auth/login" method="post" class="logform">
                 {% csrf_token %}
                 <br>
-                <label for="username">Логин</label>
-                <input type="text" name="username" id="username" required autofocus>
+                <label for="username"></label>
+                <input class="panel-title text-center" type="text" name="username" id="username" placeholder="Введите логин" required autofocus>
                 <br>
-                <label for="password">Пароль</label>
-                <input type="password" name="password" id="password" required>
-                <br>
+                <label for="password"></label>
+                <input class="panel-title text-center" type="password" name="password" d="password" placeholder="Введите пароль" required>
+                <br  class="panel-title">
                 {% if login_error %}
-                    <label class="logerr"> {{ login_error }} </label>
+                    <label> {{ login_error }} </label>
                 {% endif %}
                 <br>
-                <input class="myButton" type="submit" value="Войти">
+                <input type="submit" value="Войти" class="btn btn-default btn-lg" style="margin-left: 6%">
             </form>
-        </div>
-    </td>
-{#<!--#}
-{#    you can substitue the span of reauth email for a input with the email and#}
-{#    include the remember me checkbox#}
-{#    -->#}
-{#    <div class="container">#}
-{#        <div class="card card-container">#}
-{#            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->#}
-{#            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />#}
-{#            <p id="profile-name" class="profile-name-card"></p>#}
-{#            <form action="/auth/login" method="post" class="form-signin">#}
+        </td>
+    <td width="3%"></td>
+    </tr>
+{#</div>#}
+{#    <tr>#}
+{#        <div class="logform">#}
+{#            <form action="/auth/login" method="post">#}
 {#                {% csrf_token %}#}
-{#                <span id="reauth-email" class="reauth-email"></span>#}
-{#                <input type="text" id="username" class="form-control" placeholder="login" required autofocus>#}
-{#                <input type="password" id="password" class="form-control" placeholder="pass" required>#}
-{#                <div id="remember" class="checkbox">#}
-{#                    <label>#}
-{#                        <input type="checkbox" value="remember-me"> Remember me#}
-{#                    </label>#}
-{#                </div>#}
-{#                <button class="btn btn-lg btn-warning btn-block btn-signin" type="submit">Войти</button>#}
-{#            </form><!-- /form -->#}
-{#            <a href="#" class="forgot-password">#}
-{#                Forgot the password?#}
-{#            </a>#}
-{#        </div><!-- /card-container -->#}
-{#    </div><!-- /container -->#}
+{#                <br>#}
+{#                <label for="username"></label>#}
+{#                <input class="panel-title text-center" type="text" name="username" id="username" placeholder="Введите логин" required autofocus>#}
+{#                <br>#}
+{#                <label for="password"></label>#}
+{#                <input class="panel-title text-center" type="password" name="password" id="password" placeholder="Введите пароль" required>#}
+{#                <br  class="panel-title">#}
+{#                {% if login_error %}#}
+{#                    <label> {{ login_error }} </label>#}
+{#                {% endif %}#}
+{#                <br>#}
+{#                <input class="myButton" type="submit" value="Войти">#}
+{#            </form>#}
+{#        </div>#}
+{#    </tr>#}
+</table>
 </body>
 </html>

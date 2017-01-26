@@ -18,6 +18,7 @@ import csv
 
 def list_call(request):
     args = {}
+    args['title_page'] = 'ЛОЭСК | Главная'
     args['list_call'] = Call.objects.all().order_by('-call_date')
     args['username'] = auth.get_user(request).username
     args['id'] = auth.get_user(request).id
@@ -30,6 +31,7 @@ def list_call(request):
         user = User.objects.get(pk=user_id)
         args['user_filial'] = user.profile.user_filial
         args['user_otdel'] = user.profile.user_otdel
+        args['user_res'] = user.profile.user_res
         args['user_group'] = request.user.groups.values_list('name', flat=True).first()
         return render(request, 'list_call.html', {'args': args})
 
@@ -43,6 +45,7 @@ def one_call(request, call_id=1):
 
 def new_call(request):
     args = {}
+    args['title_page'] = 'ЛОЭСК | Новый звонок'
     args['id'] = auth.get_user(request).id
     user_id = args['id']
     user = User.objects.get(pk=user_id)
@@ -71,7 +74,10 @@ def new_call(request):
             call.save()
             return redirect('/')
     else:
-        form = MessageForm(initial={'call_user_man': args['username']})
+        form = MessageForm(initial={'call_user_man': args['username'],
+                                    'call_user_man_filial': args['user_filial'],
+                                    'call_user_man_otdel': args['user_otdel'],
+                                    })
         return render(request, 'new_call.html', {'form': form, 'args': args})
 
 
