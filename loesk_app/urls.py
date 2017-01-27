@@ -1,5 +1,7 @@
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.conf.urls.static import static
+from . import settings
 
 urlpatterns = [
     # Examples:
@@ -10,5 +12,4 @@ urlpatterns = [
     url(r'^basicview/', include('call.urls')),
     url(r'^auth/', include('loginsys.urls')),
     url(r'^', include('call.urls')),
-
 ]

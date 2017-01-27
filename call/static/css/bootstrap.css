@@ -7,11 +7,19 @@
 /*
 MY
 */
-.mytext {
-  color: #FFFFFF;
+.my_hidden_class{
+  display: none;
+}
+
+.header-text_td{
+  align: "center";
+  width: 10%;
   font-family: Verdana, Arial, sans-serif,  'MS Sans Serif' ;
-  font-size: 18pt;
-  /*color="#ffffff" face="Times" size="5"*/
+
+}
+
+.header-text_white {
+  color: #FFFFFF;
 }
 
 .asteriskField {

@@ -90,8 +90,8 @@ class MessageForm(forms.ModelForm):
         Field('call_entite'),
         Field('call_title', placeholder='ФИО Абонента/Название организации'),
         Field('call_aim'),
-        Field('call_otvet'),
-        Field('call_kontact', placeholder='Email/телефон'),
+        Field('call_otvet', initial=False),
+        Field('call_kontact', placeholder='Контакты для связи', style='display: none;'),
         Field('call_act'),
         Field('call_date', readonly=True),
         Field('call_user_man', readonly=True),
@@ -102,6 +102,11 @@ class MessageForm(forms.ModelForm):
             Button('cancel', 'Назад', css_class='btn btn-default btn-lg', onclick='history.go(-1);')
         )
     )
+    def __init__(self, *args, **kwargs):
+        super(MessageForm, self).__init__(*args, **kwargs)
+        self.fields['call_kontact'].label = ''
+        self.fields['call_otvet'].label = 'Необходимо подготовить ответ'
+        # self.fields['call_kontact'].style = 'display : none;'
 
 
 # class MessageForm(forms.Form):
