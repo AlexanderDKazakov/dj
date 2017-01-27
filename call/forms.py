@@ -93,10 +93,10 @@ class MessageForm(forms.ModelForm):
         Field('call_otvet', initial=False),
         Field('call_kontact', placeholder='Контакты для связи', style='display: none;'),
         Field('call_act'),
-        Field('call_date', readonly=True),
-        Field('call_user_man', readonly=True),
-        Field('call_user_man_filial', readonly=True),
-        Field('call_user_man_otdel', readonly=True),
+        Field('call_date', readonly=True, style='display: none;'),
+        Field('call_user_man', readonly=True, style='display: none;'),
+        Field('call_user_man_filial', readonly=True, style='display: none;'),
+        Field('call_user_man_otdel', readonly=True, style='display: none;'),
         FormActions(
             Submit('submit', 'Добавить звонок', css_class='btn btn-success btn-lg'),
             Button('cancel', 'Назад', css_class='btn btn-default btn-lg', onclick='history.go(-1);')
@@ -105,7 +105,13 @@ class MessageForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(MessageForm, self).__init__(*args, **kwargs)
         self.fields['call_kontact'].label = ''
+        self.fields['call_date'].label = ''
+        self.fields['call_user_man'].label = ''
+        self.fields['call_user_man_filial'].label = ''
+        self.fields['call_user_man_otdel'].label = ''
         self.fields['call_otvet'].label = 'Необходимо подготовить ответ'
+
+
         # self.fields['call_kontact'].style = 'display : none;'
 
 
