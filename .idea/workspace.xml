@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5b254265-8115-4b5b-bbee-26fa737479eb" name="Default" comment="">
+    <list default="true" id="5b254265-8115-4b5b-bbee-26fa737479eb" name="Default" comment="27.01.17&#10;- Add Jquery&#10;- Jquery on click: it's work not so well as expected. (TRUE/FALSE kontakt)&#10;- Form hidden&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;-TODO add&#10;  &#10;TODO:&#10;FilesUploading&#10;{% RES %}&#10;&#10;">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLE/форма качества 4.9.xlsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/forms.py" afterPath="$PROJECT_DIR$/call/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/models.py" afterPath="$PROJECT_DIR$/call/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/templates/heading.html" afterPath="$PROJECT_DIR$/call/templates/heading.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/templates/list_call.html" afterPath="$PROJECT_DIR$/call/templates/list_call.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/views.py" afterPath="$PROJECT_DIR$/call/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/django_crispy_forms-1.6.1.dist-info/RECORD" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/django_crispy_forms-1.6.1.dist-info/RECORD" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,14 +42,15 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/call/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+            <state relative-caret-position="504">
+              <caret line="35" column="52" lean-forward="true" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
               <folding>
-                <element signature="e#3151#6943#0" expanded="false" />
-                <element signature="e#3151#3192#0" expanded="false" />
+                <element signature="e#24#59#0" expanded="true" />
+                <element signature="e#3286#7078#0" expanded="false" />
+                <element signature="e#3286#3327#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -91,7 +91,7 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loginsys/templates/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
+            <state relative-caret-position="18">
               <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
               <folding />
             </state>
@@ -101,9 +101,24 @@
       <file leaf-file-name="list_call.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/call/templates/list_call.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="64" lean-forward="false" selection-start-line="3" selection-start-column="64" selection-end-line="3" selection-end-column="64" />
+            <state relative-caret-position="247">
+              <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="41" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="call" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/25e2be51/5c4e0781-6990-416e-a70a-9c0f0617916c/call">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -118,7 +133,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="heading.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="heading.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/call/templates/heading.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
@@ -144,18 +159,6 @@
             <state relative-caret-position="1350">
               <caret line="75" column="5" lean-forward="false" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loesk_app/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="11" column="46" lean-forward="false" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -187,8 +190,6 @@
         <option value="$PROJECT_DIR$/loesk_app/dashboard.py" />
         <option value="$PROJECT_DIR$/call/admin.py" />
         <option value="$PROJECT_DIR$/loginsys/templates/login.html" />
-        <option value="$PROJECT_DIR$/call/templates/list_call.html" />
-        <option value="$PROJECT_DIR$/call/views.py" />
         <option value="$PROJECT_DIR$/call/templates/new_call.html" />
         <option value="$PROJECT_DIR$/call/static/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/loesk_app/settings.py" />
@@ -196,6 +197,8 @@
         <option value="$PROJECT_DIR$/call/models.py" />
         <option value="$PROJECT_DIR$/call/forms.py" />
         <option value="$PROJECT_DIR$/call/templates/heading.html" />
+        <option value="$PROJECT_DIR$/call/templates/list_call.html" />
+        <option value="$PROJECT_DIR$/call/views.py" />
       </list>
     </option>
   </component>
@@ -208,8 +211,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="16" />
     <option name="y" value="49" />
-    <option name="width" value="1695" />
-    <option name="height" value="836" />
+    <option name="width" value="1121" />
+    <option name="height" value="942" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -668,17 +671,34 @@
       <option name="project" value="LOCAL" />
       <updated>1485527524638</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="27.01.17&#10;- Add Jquery&#10;- Jquery on click: it's work not so well as expected. (TRUE/FALSE kontakt)&#10;- Form hidden&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;  &#10;TODO:&#10;FilesUploading&#10;{% RES %}&#10;&#10;">
+      <created>1485548701880</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1485548701880</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="16" y="49" width="1695" height="836" extended-state="0" />
-    <editor active="true" />
+    <frame x="16" y="49" width="1121" height="942" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19455943" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17188899" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32977462" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22684704" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22666667" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.88545245" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -691,7 +711,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.88545245" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -707,7 +726,9 @@
     <MESSAGE value="New: dashboard; add filters to admin panel.&#10;" />
     <MESSAGE value="26.01.17&#10;New design for login form, call_list.&#10;New buttons everywhere.&#10;&#10;&#10;TODO:&#10;{% RES %}&#10;Javascripts&#10;" />
     <MESSAGE value="27.01.17&#10;- Add Jquery&#10;- Jquery on click: it's work not so well as expected. (TRUE/FALSE kontakt)&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;  &#10;TODO:&#10;FilesUploading&#10;{% RES %}&#10;&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="27.01.17&#10;- Add Jquery&#10;- Jquery on click: it's work not so well as expected. (TRUE/FALSE kontakt)&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;  &#10;TODO:&#10;FilesUploading&#10;{% RES %}&#10;&#10;" />
+    <MESSAGE value="27.01.17&#10;- Add Jquery&#10;- Jquery on click: it's work not so well as expected. (TRUE/FALSE kontakt)&#10;- Form hidden&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;  &#10;TODO:&#10;FilesUploading&#10;{% RES %}&#10;&#10;" />
+    <MESSAGE value="27.01.17&#10;- Add Jquery&#10;- Jquery on click: it's work not so well as expected. (TRUE/FALSE kontakt)&#10;- Form hidden&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;-TODO add&#10;  &#10;TODO:&#10;FilesUploading&#10;{% RES %}&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="27.01.17&#10;- Add Jquery&#10;- Jquery on click: it's work not so well as expected. (TRUE/FALSE kontakt)&#10;- Form hidden&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;-TODO add&#10;  &#10;TODO:&#10;FilesUploading&#10;{% RES %}&#10;&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -729,8 +750,9 @@
         <state relative-caret-position="378">
           <caret line="31" column="52" lean-forward="false" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
           <folding>
-            <element signature="e#3151#6943#0" expanded="false" />
-            <element signature="e#3151#3192#0" expanded="false" />
+            <element signature="e#24#59#0" expanded="true" />
+            <element signature="e#3286#7078#0" expanded="false" />
+            <element signature="e#3286#3327#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -820,8 +842,9 @@
         <state relative-caret-position="396">
           <caret line="33" column="3" lean-forward="true" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
           <folding>
-            <element signature="e#3151#6943#0" expanded="false" />
-            <element signature="e#3151#3192#0" expanded="false" />
+            <element signature="e#24#59#0" expanded="true" />
+            <element signature="e#3286#7078#0" expanded="false" />
+            <element signature="e#3286#3327#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -912,7 +935,7 @@
         <state relative-caret-position="72">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -954,7 +977,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1043,18 +1066,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/25e2be51/5c4e0781-6990-416e-a70a-9c0f0617916c/call">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/loesk_app/dashboard.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -1096,20 +1107,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loginsys/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/loesk_app/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="11" column="46" lean-forward="false" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1122,18 +1125,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/call/templates/list_call.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="64" lean-forward="false" selection-start-line="3" selection-start-column="64" selection-end-line="3" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/call/static/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1098">
           <caret line="61" column="26" lean-forward="false" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/call/templates/heading.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1146,25 +1149,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/call/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding>
-            <element signature="e#3151#6943#0" expanded="false" />
-            <element signature="e#3151#3192#0" expanded="false" />
-          </folding>
+    <entry file="dbDummy://dbtable:/25e2be51/5c4e0781-6990-416e-a70a-9c0f0617916c/call">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/call/forms.py">
+    <entry file="file://$PROJECT_DIR$/loginsys/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="110" column="40" lean-forward="false" selection-start-line="110" selection-start-column="40" selection-end-line="110" selection-end-column="40" />
-          <folding>
-            <element signature="e#24#48#0" expanded="true" />
-            <element signature="e#429#473#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="18">
+          <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1185,11 +1187,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/call/templates/heading.html">
+    <entry file="file://$PROJECT_DIR$/call/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        <state relative-caret-position="614">
+          <caret line="110" column="40" lean-forward="false" selection-start-line="110" selection-start-column="40" selection-end-line="110" selection-end-column="40" />
+          <folding>
+            <element signature="e#24#48#0" expanded="true" />
+            <element signature="e#429#473#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/call/templates/list_call.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="41" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/call/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="35" column="52" lean-forward="true" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
+          <folding>
+            <element signature="e#24#59#0" expanded="true" />
+            <element signature="e#3286#7078#0" expanded="false" />
+            <element signature="e#3286#3327#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

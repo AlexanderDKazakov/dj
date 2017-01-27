@@ -3,6 +3,7 @@
 <br>
 <a href="{% url 'call.views.new_call' %}"><button class="btn btn-success btn-lg">Новый звонок</button></a>
 <a href="{% url 'call.views.data_out_csv' %}"><button class="btn btn-default btn-lg">Отчёт</button></a>
+    <h4>Список звонков по которым необходимо сформировать ответ:</h4>
 <table border="0" align="center" width="100%" margin-top = 2%>
     <tr>
         <td>
@@ -23,6 +24,7 @@
     </tr>
     <tr style="border-bottom: 1px solid #000;"></tr>
     {% for call in args.list_call %}
+{#        {% if call.call_user_man_filial == args.user_filial %}#}
         <tr>
             <td>
                 <h4><a href="/call/get/{{ call.id }}">{{ call.call_title }}</a></h4>
@@ -40,6 +42,9 @@
                 <h4> {{ call.call_user_man }} </h4>
             </td>
         </tr>
+{#        {% endif %}#}
+{#        {{ call.call_user_man_filial }}#}
+{#        {{ args.user_filial }}#}
     {% endfor %}
 </table>
 {% endblock content %}

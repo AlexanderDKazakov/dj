@@ -33,6 +33,8 @@ def list_call(request):
         args['user_otdel'] = user.profile.user_otdel
         args['user_res'] = user.profile.user_res
         args['user_group'] = request.user.groups.values_list('name', flat=True).first()
+     #### TODO : Need to have filiter on user.filial
+        # args['call_for_filial'] = Call.objects.filter(user.profile.user_filial)
         return render(request, 'list_call.html', {'args': args})
 
 
