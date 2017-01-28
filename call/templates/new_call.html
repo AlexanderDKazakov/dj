@@ -1,20 +1,8 @@
 {% extends 'heading.html' %}
 {% load crispy_forms_tags %}
-<title>ЛОЭСК | Новый звонок</title>
 {% block content %}
-    {% if request.user.is_authenticated %}
     <h3 class="title">Новый звонок</h3>
     <form method="post" action="">
         {% crispy form  %}
     </form>
-    {% else %}
-        <table align="center">
-        <tr>
-        <td align="center">
-        <h1>Нужно <a href="/auth/login">Войти</a></h1>
-        </td>
-        </tr>
-        </table>
-    {% endif %}
-
 {% endblock %}

@@ -98,7 +98,7 @@ class MessageForm(forms.ModelForm):
         Field('call_user_man_filial', readonly=True, style='display: none;'),
         Field('call_user_man_otdel', readonly=True, style='display: none;'),
         FormActions(
-            Submit('submit', 'Добавить звонок', css_class='btn btn-success btn-lg'),
+            Submit('submit', args['title_button'], css_class='btn btn-success btn-lg'),
             Button('cancel', 'Назад', css_class='btn btn-default btn-lg', onclick='history.go(-1);')
         )
     )

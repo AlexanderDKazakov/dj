@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.shortcuts import render_to_response, redirect
 from call.models import Call, User
 from django.contrib import auth
+from django.shortcuts import get_object_or_404
 ### For form
 from .forms import MessageForm
 # from .forms import CallForm
@@ -34,15 +35,33 @@ def list_call(request):
         args['user_res'] = user.profile.user_res
         args['user_group'] = request.user.groups.values_list('name', flat=True).first()
      #### TODO : Need to have filiter on user.filial
-        # args['call_for_filial'] = Call.objects.filter(user.profile.user_filial)
+        args['call_for_filial'] = Call.objects.filter(call_user_man_filial=args['user_filial'])
         return render(request, 'list_call.html', {'args': args})
 
 
-def one_call(request, call_id=1):
+def call_edit(request, call_id=1):
     args = {}
-    args['one_call'] = Call.objects.get(id=call_id)
+    args['title_page'] = 'ЛОЭСК | Редактирование звонка'
+    args['id'] = auth.get_user(request).id
+    user_id = args['id']
+    user = User.objects.get(pk=user_id)
+    args['call_edit'] = Call.objects.get(id=call_id)
     args['username'] = auth.get_user(request)
-    return render_to_response('one_call.html', args)
+    args['user_filial'] = user.profile.user_filial
+    args['user_otdel'] = user.profile.user_otdel
+    args['user_group'] = request.user.groups.values_list('name', flat=True).first()
+    args['title_button'] = 'Сохранить изменения'
+    # HEADING
+    call = get_object_or_404(Call, pk=call_id)
+    if request.method == "POST":
+        form = MessageForm(request.POST, instance=call)
+        if form.is_valid():
+            call = form.save(commit=False)
+            call.save()
+            return redirect('/')
+    else:
+        form = MessageForm(instance=call)
+    return render(request, 'one_call.html', {'form': form, 'args': args})
 
 
 def new_call(request):
@@ -56,23 +75,12 @@ def new_call(request):
     args['user_filial'] = user.profile.user_filial
     args['user_otdel'] = user.profile.user_otdel
     args['user_group'] = request.user.groups.values_list('name', flat=True).first()
+    args['title_button'] = 'Добавить звонок'
     ### HEADING
     if request.method == "POST":
         form = MessageForm(request.POST)
-        # form = CallForm(request.POST)
         if form.is_valid():
             call = form.save(commit=False)
-            ####
-            # data_from_form = form.cleaned_data
-            # form = Call(
-            #     call_title=data_from_form['call_title'],
-            #     call_aim=data_from_form['call_aim'],
-            #     call_date=data_from_form['call_date'],
-            #     call_entite=data_from_form['call_entite'],
-            #     call_otvet=data_from_form['call_otvet'],
-            #     call_user_man=data_from_form['call_user_man'],
-            # )
-            ###
             call.save()
             return redirect('/')
     else:
@@ -80,7 +88,7 @@ def new_call(request):
                                     'call_user_man_filial': args['user_filial'],
                                     'call_user_man_otdel': args['user_otdel'],
                                     })
-        return render(request, 'new_call.html', {'form': form, 'args': args})
+    return render(request, 'new_call.html', {'form': form, 'args': args})
 
 
 def data_out_csv(request):

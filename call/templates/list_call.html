@@ -23,8 +23,7 @@
         </td>
     </tr>
     <tr style="border-bottom: 1px solid #000;"></tr>
-    {% for call in args.list_call %}
-{#        {% if call.call_user_man_filial == args.user_filial %}#}
+    {% for call in args.call_for_filial %}
         <tr>
             <td>
                 <h4><a href="/call/get/{{ call.id }}">{{ call.call_title }}</a></h4>
@@ -42,7 +41,6 @@
                 <h4> {{ call.call_user_man }} </h4>
             </td>
         </tr>
-{#        {% endif %}#}
 {#        {{ call.call_user_man_filial }}#}
 {#        {{ args.user_filial }}#}
     {% endfor %}

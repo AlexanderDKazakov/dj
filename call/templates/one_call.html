@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Детализация звонка</title>
-</head>
-<body>
-Здесь буду детали
-</body>
-</html>
+{% extends 'heading.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h3 class="title">Редактирование звонка</h3>
+    <form method="post" action="">
+        {% crispy form  %}
+    </form>
+{% endblock %}
