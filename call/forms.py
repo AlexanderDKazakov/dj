@@ -82,8 +82,9 @@ class MessageForm(forms.ModelForm):
                   ]
     # Uni-form
     helper = FormHelper()
-    helper.form_class = 'form-vertical'
-    # helper.form_class = 'form'
+    # helper.form_class = 'form-vertical .form_add_edit'
+    # helper.form_class = 'form_add_edit'
+    helper.form_class = ''
     # helper.label_class = 'label label-warning'  # this css class attribute will be added to all of the labels in your form. For instance, the "Username: " label will have 'col-md-3'
     helper.field_class = 'form-group'  # this css class attribute will be added to all of the input fields in your form. For isntance, the input text box for "Username" will have 'col-md-9'
     helper.form_method = 'post'

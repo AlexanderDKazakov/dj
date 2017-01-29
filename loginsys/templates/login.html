@@ -5,17 +5,26 @@
     input[type=text], input[type=password] {
         font-family: sans-serif;
         margin-bottom: 25px;
-        width: 100%;
+{#        width: 100%;#}
         height: 50px;
+        text-align: center;
         background: whitesmoke;
         border: 0;
         border-radius: 15px;
         -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.06);
         box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.06);
     }
-    input{display:inline-block}
-    .logform{
+    input{
+        display: inline-block;
+        margin-left: auto;
         margin-right: auto;
+        align-self: auto;
+    }
+    .logform{
+{#        margin-right: auto;#}
+    }
+    form{
+        align-self: center;
     }
 </style>
 <head>
@@ -32,9 +41,8 @@
     </tr>
     <tr>
         <td>
-        <form action="/auth/login" method="post" class="logform">
+            <form action="/auth/login" method="post" class="logform">
                 {% csrf_token %}
-                <div class="buttonHolder">
                 <br>
                 <label for="username"></label>
                 <input class="panel-title text-center" type="text" name="username" id="username" placeholder="Введите логин" required autofocus>
@@ -46,7 +54,6 @@
                     <label> {{ login_error }} </label>
                 {% endif %}
                 <br>
-                </div>
                 <div class="buttonHolder">
                 <input type="submit" value="Войти" class="btn btn-default btn-lg">
                 </div>

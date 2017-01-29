@@ -101,7 +101,7 @@ input:focus {
     display: none;
 }
 
-form {
+.form_add_edit {
   margin-left: 10%;
   margin-right: 25%;
   text-align: justify;
