@@ -34,6 +34,7 @@
         <td>
         <form action="/auth/login" method="post" class="logform">
                 {% csrf_token %}
+                <div class="buttonHolder">
                 <br>
                 <label for="username"></label>
                 <input class="panel-title text-center" type="text" name="username" id="username" placeholder="Введите логин" required autofocus>
@@ -45,6 +46,7 @@
                     <label> {{ login_error }} </label>
                 {% endif %}
                 <br>
+                </div>
                 <div class="buttonHolder">
                 <input type="submit" value="Войти" class="btn btn-default btn-lg">
                 </div>
