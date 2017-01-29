@@ -10,6 +10,7 @@ from django.forms.extras.widgets import SelectDateWidget
 from call.models import Call, User
 from django.contrib import auth
 
+
 # from crispy_forms.helper import FormHelper
 # from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
 # from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
@@ -91,14 +92,14 @@ class MessageForm(forms.ModelForm):
         Field('call_title', placeholder='ФИО Абонента/Название организации'),
         Field('call_aim'),
         Field('call_otvet', initial=False),
-        Field('call_kontact', placeholder='Контакты для связи', style='display: none;'),
+        Field('call_kontact', placeholder='Контакты для связи'),
         Field('call_act'),
         Field('call_date', readonly=True, style='display: none;'),
         Field('call_user_man', readonly=True, style='display: none;'),
         Field('call_user_man_filial', readonly=True, style='display: none;'),
         Field('call_user_man_otdel', readonly=True, style='display: none;'),
         FormActions(
-            Submit('submit', args['title_button'], css_class='btn btn-success btn-lg'),
+            Submit('submit', 'Cохранить', css_class='btn btn-success btn-lg'),
             Button('cancel', 'Назад', css_class='btn btn-default btn-lg', onclick='history.go(-1);')
         )
     )

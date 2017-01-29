@@ -49,6 +49,7 @@ def call_edit(request, call_id=1):
     args['username'] = auth.get_user(request)
     args['user_filial'] = user.profile.user_filial
     args['user_otdel'] = user.profile.user_otdel
+    args['user_res'] = user.profile.user_res
     args['user_group'] = request.user.groups.values_list('name', flat=True).first()
     args['title_button'] = 'Сохранить изменения'
     # HEADING
@@ -61,7 +62,7 @@ def call_edit(request, call_id=1):
             return redirect('/')
     else:
         form = MessageForm(instance=call)
-    return render(request, 'one_call.html', {'form': form, 'args': args})
+    return render(request, 'call_edit.html', {'form': form, 'args': args})
 
 
 def new_call(request):
@@ -74,6 +75,7 @@ def new_call(request):
     args['username'] = auth.get_user(request).username
     args['user_filial'] = user.profile.user_filial
     args['user_otdel'] = user.profile.user_otdel
+    args['user_res'] = user.profile.user_res
     args['user_group'] = request.user.groups.values_list('name', flat=True).first()
     args['title_button'] = 'Добавить звонок'
     ### HEADING
