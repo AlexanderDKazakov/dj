@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5b254265-8115-4b5b-bbee-26fa737479eb" name="Default" comment="27.01.17&#10;- Add Jquery&#10;- Jquery on click: it's work not so well as expected. (TRUE/FALSE kontakt)&#10;- Form hidden&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;-TODO add&#10;  &#10;TODO:&#10;FilesUploading&#10;{% RES %}&#10;&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLE/форма качества 4.9.xlsx" />
+    <list default="true" id="5b254265-8115-4b5b-bbee-26fa737479eb" name="Default" comment="29.01.17&#10;Nice logform design.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/django_crispy_forms-1.6.1.dist-info/RECORD" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/django_crispy_forms-1.6.1.dist-info/RECORD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginsys/templates/login.html" afterPath="$PROJECT_DIR$/loginsys/templates/login.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -733,7 +731,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485692234849</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="29.01.17&#10;Nice logform design.">
+      <created>1485692753123</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1485692753123</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -786,7 +791,8 @@
     <MESSAGE value="28.01.17&#10;- Add posibility to edit calls. &#10;- Jquery on click: it's work not so well as expected. (TRUE/FALSE kontakt)&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;&#10;  &#10;TODO:&#10;FilesUploading&#10;{% RES %}&#10;&#10;" />
     <MESSAGE value="29.01.17&#10;- Jquery on click: it's work not so well as expected. (TRUE/FALSE kontakt) ---- Done.&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;{% RES %} --- Done.&#10;&#10;" />
     <MESSAGE value="29.01.17&#10;- add filters to call_list by aim, and searching by name&#10;&#10;###&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;  &#10;TODO:&#10;FilesUploading&#10;&#10;&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="29.01.17&#10;- add filters to call_list by aim, and searching by name&#10;&#10;###&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;  &#10;TODO:&#10;FilesUploading&#10;&#10;&#10;" />
+    <MESSAGE value="29.01.17&#10;Nice logform design." />
+    <option name="LAST_COMMIT_MESSAGE" value="29.01.17&#10;Nice logform design." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
