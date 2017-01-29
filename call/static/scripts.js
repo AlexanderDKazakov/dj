@@ -14,3 +14,9 @@
                     $("#id_call_kontact").css({'display': 'none'});
                 }
        })
+
+        var options = {
+        valueNames: [ 'name', 'date', 'aim' ]
+        };
+
+        var userList = new List('users', options);

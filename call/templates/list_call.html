@@ -3,8 +3,13 @@
 <br>
 <a href="{% url 'call.views.new_call' %}"><button class="btn btn-success btn-lg">Новый звонок</button></a>
 <a href="{% url 'call.views.data_out_csv' %}"><button class="btn btn-default btn-lg">Отчёт</button></a>
-    <h4>Список звонков по которым необходимо сформировать ответ:</h4>
-<table border="0" align="center" width="100%" margin-top = 2%>
+<h4>{{ args.top_message }}</h4>
+<div align="right" id="users">
+  <input class="search" placeholder="Поиск по имени" />
+  <button class="sort" data-sort="aim">Сортировка по причине звонка:</button>
+  <table  border="0" align="center" width="100%" margin-top = 2%>
+    <!-- IMPORTANT, class="list" have to be at tbody -->
+    <tbody class="list">
     <tr>
         <td>
             <h4>ФИО абонента</h4>
@@ -16,9 +21,6 @@
             <h4>Цель звонка</h4>
         </td>
         <td>
-            <h4>Требуется подготовить ответ</h4>
-        </td>
-        <td>
             <h4>Принял</h4>
         </td>
     </tr>
@@ -26,16 +28,13 @@
     {% for call in args.call_for_filial %}
         <tr>
             <td>
-                <h4><a href="/call/get/{{ call.id }}">{{ call.call_title }}</a></h4>
+                <h4 class="name"><a href="/call/get/{{ call.id }}">{{ call.call_title }}</a></h4>
             </td>
             <td>
-                <h4> {{ call.call_date }} </h4>
+                <h4 class="date"> {{ call.call_date }} </h4>
             </td>
             <td>
-                <h4> {{ call.call_aim }} </h4>
-            </td>
-            <td>
-                <h4> {{ call.call_otvet }} </h4>
+                <h4 class="aim"> {{ call.call_aim }} </h4>
             </td>
             <td>
                 <h4> {{ call.call_user_man }} </h4>
@@ -44,5 +43,9 @@
 {#        {{ call.call_user_man_filial }}#}
 {#        {{ args.user_filial }}#}
     {% endfor %}
-</table>
+  </tbody>
+  </table>
+
+
+</div>
 {% endblock content %}

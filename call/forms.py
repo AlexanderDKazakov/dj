@@ -92,7 +92,7 @@ class MessageForm(forms.ModelForm):
         Field('call_title', placeholder='ФИО Абонента/Название организации'),
         Field('call_aim'),
         Field('call_otvet', initial=False),
-        Field('call_kontact', placeholder='Контакты для связи'),
+        Field('call_kontact', placeholder='Контакты для связи: +7 (XXX) XXX XX XX'),
         Field('call_act'),
         Field('call_date', readonly=True, style='display: none;'),
         Field('call_user_man', readonly=True, style='display: none;'),
