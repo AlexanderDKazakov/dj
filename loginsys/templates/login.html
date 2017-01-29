@@ -3,9 +3,8 @@
 <html lang="ru">
 <style>
     input[type=text], input[type=password] {
-{#        padding: 0 15px;#}
+        font-family: sans-serif;
         margin-bottom: 25px;
-{#        width: 200px;#}
         height: 50px;
         background: whitesmoke;
         border: 0;
@@ -15,7 +14,6 @@
     }
     input{display:inline-block}
     .logform{
-        margin-left: 44.6%;
         margin-right: auto;
     }
 </style>
@@ -25,17 +23,14 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
 </head>
 <body>
-<table border="0" width="100%" align="center">
+<table align="center">
     <tr>
-        <td width="3%"></td>
-        <td width="94%">
+        <td>
             <a href="/"><img src="{% static "img/loesk.jpeg" %}" alt="LOESK" width="125" height="125"></a>
         </td>
-        <td width="3%"></td>
     </tr>
     <tr>
-    <td width="3%"></td>
-        <td width="94%">
+        <td>
         <form action="/auth/login" method="post" class="logform">
                 {% csrf_token %}
                 <br>
@@ -49,31 +44,10 @@
                     <label> {{ login_error }} </label>
                 {% endif %}
                 <br>
-                <input type="submit" value="Войти" class="btn btn-default btn-lg" style="margin-left: 6%">
+                <input type="submit" value="Войти" class="btn btn-default btn-lg" style="margin-left: 35%">
             </form>
         </td>
-    <td width="3%"></td>
     </tr>
-{#</div>#}
-{#    <tr>#}
-{#        <div class="logform">#}
-{#            <form action="/auth/login" method="post">#}
-{#                {% csrf_token %}#}
-{#                <br>#}
-{#                <label for="username"></label>#}
-{#                <input class="panel-title text-center" type="text" name="username" id="username" placeholder="Введите логин" required autofocus>#}
-{#                <br>#}
-{#                <label for="password"></label>#}
-{#                <input class="panel-title text-center" type="password" name="password" id="password" placeholder="Введите пароль" required>#}
-{#                <br  class="panel-title">#}
-{#                {% if login_error %}#}
-{#                    <label> {{ login_error }} </label>#}
-{#                {% endif %}#}
-{#                <br>#}
-{#                <input class="myButton" type="submit" value="Войти">#}
-{#            </form>#}
-{#        </div>#}
-{#    </tr>#}
 </table>
 </body>
 </html>

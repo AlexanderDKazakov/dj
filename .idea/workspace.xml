@@ -4,13 +4,8 @@
     <list default="true" id="5b254265-8115-4b5b-bbee-26fa737479eb" name="Default" comment="27.01.17&#10;- Add Jquery&#10;- Jquery on click: it's work not so well as expected. (TRUE/FALSE kontakt)&#10;- Form hidden&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;-TODO add&#10;  &#10;TODO:&#10;FilesUploading&#10;{% RES %}&#10;&#10;">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SAMPLE/форма качества 4.9.xlsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/forms.py" afterPath="$PROJECT_DIR$/call/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/static/css/bootstrap.css" afterPath="$PROJECT_DIR$/call/static/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/static/scripts.js" afterPath="$PROJECT_DIR$/call/static/scripts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/templates/heading.html" afterPath="$PROJECT_DIR$/call/templates/heading.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/templates/list_call.html" afterPath="$PROJECT_DIR$/call/templates/list_call.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/views.py" afterPath="$PROJECT_DIR$/call/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/django_crispy_forms-1.6.1.dist-info/RECORD" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/django_crispy_forms-1.6.1.dist-info/RECORD" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginsys/templates/login.html" afterPath="$PROJECT_DIR$/loginsys/templates/login.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -74,21 +69,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="call" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/25e2be51/5c4e0781-6990-416e-a70a-9c0f0617916c/call">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/call/forms.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -131,12 +111,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loesk_app/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
               <caret line="78" column="25" lean-forward="true" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/loginsys/templates/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="558">
+              <caret line="46" column="16" lean-forward="false" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+              <folding>
+                <element signature="n#style#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#input#2;n#form#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -211,7 +204,6 @@
         <option value="$PROJECT_DIR$/loginsys/views.py" />
         <option value="$PROJECT_DIR$/loesk_app/dashboard.py" />
         <option value="$PROJECT_DIR$/call/admin.py" />
-        <option value="$PROJECT_DIR$/loginsys/templates/login.html" />
         <option value="$PROJECT_DIR$/loesk_app/settings.py" />
         <option value="$PROJECT_DIR$/loesk_app/urls.py" />
         <option value="$PROJECT_DIR$/call/models.py" />
@@ -224,6 +216,7 @@
         <option value="$PROJECT_DIR$/call/static/scripts.js" />
         <option value="$PROJECT_DIR$/call/templates/list_call.html" />
         <option value="$PROJECT_DIR$/call/forms.py" />
+        <option value="$PROJECT_DIR$/loginsys/templates/login.html" />
       </list>
     </option>
   </component>
@@ -267,6 +260,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="pyproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loginsys" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loginsys" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -701,7 +726,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485687849042</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="29.01.17&#10;- add filters to call_list by aim, and searching by name&#10;&#10;###&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;  &#10;TODO:&#10;FilesUploading&#10;&#10;&#10;">
+      <created>1485692234849</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1485692234849</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -753,7 +785,8 @@
     <MESSAGE value="27.01.17&#10;- Add Jquery&#10;- Jquery on click: it's work not so well as expected. (TRUE/FALSE kontakt)&#10;- Form hidden&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;-TODO add&#10;  &#10;TODO:&#10;FilesUploading&#10;{% RES %}&#10;&#10;" />
     <MESSAGE value="28.01.17&#10;- Add posibility to edit calls. &#10;- Jquery on click: it's work not so well as expected. (TRUE/FALSE kontakt)&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;&#10;  &#10;TODO:&#10;FilesUploading&#10;{% RES %}&#10;&#10;" />
     <MESSAGE value="29.01.17&#10;- Jquery on click: it's work not so well as expected. (TRUE/FALSE kontakt) ---- Done.&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;{% RES %} --- Done.&#10;&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="29.01.17&#10;- Jquery on click: it's work not so well as expected. (TRUE/FALSE kontakt) ---- Done.&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;{% RES %} --- Done.&#10;&#10;" />
+    <MESSAGE value="29.01.17&#10;- add filters to call_list by aim, and searching by name&#10;&#10;###&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;  &#10;TODO:&#10;FilesUploading&#10;&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="29.01.17&#10;- add filters to call_list by aim, and searching by name&#10;&#10;###&#10;- MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')&#10;  MEDIA_URL = '/media/'&#10;  But its does not work, when you trying download files from admin panel =&gt; url pattern does not configure.&#10;  &#10;TODO:&#10;FilesUploading&#10;&#10;&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1109,13 +1142,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loginsys/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/call/templates/new_call.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1242,6 +1268,17 @@
         <state relative-caret-position="30">
           <caret line="78" column="25" lean-forward="true" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginsys/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="46" column="16" lean-forward="false" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+          <folding>
+            <element signature="n#style#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#2;n#form#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
