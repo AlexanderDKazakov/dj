@@ -7,6 +7,9 @@
 /*
 MY
 */
+.buttonHolder{
+    text-align: center;
+}
 /*SORTING*/
 .list {
   font-family:sans-serif;
