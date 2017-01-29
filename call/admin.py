@@ -1,13 +1,6 @@
 from django.contrib import admin
 from call.models import Call, Profile, Filial, legalEntity, Aim_call, Res, Otdel, ActOperator
-###
-# class CallAdmin(admin.ModelAdmin):
-#     list_filter = ['call_date']
-# Register your models here.
-# class TaskAdmin(admin.ModelAdmin):
-#     list_display = ['id', 'name', etc. etc]
-#
-# admin.site.register(Task, TaskAdmin)
+from attachments.admin import AttachmentInlines
 
 class CallAdmin(admin.ModelAdmin):
 
@@ -23,7 +16,7 @@ class CallAdmin(admin.ModelAdmin):
                     'call_date',
                     ]
     # list_editable = ['id']
-
+inlines = (AttachmentInlines,)
 admin.site.register(Call, CallAdmin)
 admin.site.register(Profile)
 admin.site.register(Filial)

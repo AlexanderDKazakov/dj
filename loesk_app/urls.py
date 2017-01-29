@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')), #grappelli URL
     url(r'^admin/', include(admin.site.urls)), # admin URL
     url(r'^basicview/', include('call.urls')),
+    url(r'^attachments/', include('attachments.urls', namespace='attachments')),
     url(r'^auth/', include('loginsys.urls')),
     url(r'^', include('call.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 from django import forms
-# from .models import Call
-from django import forms
 from django.conf import settings
 from django import utils
 from django.forms.fields import DateField, ChoiceField, MultipleChoiceField
 from django.forms.widgets import RadioSelect, CheckboxSelectMultiple
 from django.forms.extras.widgets import SelectDateWidget
-from call.models import Call, User
+from call.models import Call
 from django.contrib import auth
 
 
@@ -72,7 +70,9 @@ class MessageForm(forms.ModelForm):
         fields = ['call_title',
                   'call_entite',
                   'call_aim',
+                  'call_aim_detail',
                   'call_otvet',
+                  'call_document',
                   'call_kontact',
                   'call_date',
                   'call_user_man',
@@ -82,9 +82,6 @@ class MessageForm(forms.ModelForm):
                   ]
     # Uni-form
     helper = FormHelper()
-    # helper.form_class = 'form-vertical .form_add_edit'
-    # helper.form_class = 'form_add_edit'
-    helper.form_class = ''
     # helper.label_class = 'label label-warning'  # this css class attribute will be added to all of the labels in your form. For instance, the "Username: " label will have 'col-md-3'
     helper.field_class = 'form-group'  # this css class attribute will be added to all of the input fields in your form. For isntance, the input text box for "Username" will have 'col-md-9'
     helper.form_method = 'post'
@@ -92,8 +89,10 @@ class MessageForm(forms.ModelForm):
         Field('call_entite'),
         Field('call_title', placeholder='ФИО Абонента/Название организации'),
         Field('call_aim'),
+        Field('call_aim_detail'),
         Field('call_otvet', initial=False),
         Field('call_kontact', placeholder='Контакты для связи: +7 (XXX) XXX XX XX'),
+        Field('call_document'),
         Field('call_act'),
         Field('call_date', readonly=True, style='display: none;'),
         Field('call_user_man', readonly=True, style='display: none;'),
@@ -115,65 +114,6 @@ class MessageForm(forms.ModelForm):
 
 
         # self.fields['call_kontact'].style = 'display : none;'
-
-
-# class MessageForm(forms.Form):
-#     class Meta:
-#         models = Call
-#     call_entite = forms.ChoiceField(
-#         choices=(
-#             ('option_one', 'Физическое лицо'),
-#             ('option_two', 'Юридическое лицо')
-#         ),
-#         widget=forms.RadioSelect,
-#         initial='option_one',
-#         label='Абонент'
-#     )
-#     call_title = forms.CharField(label='')
-#
-#     call_aim = forms.ChoiceField(
-#         choices=(
-#             ('Оказание услуг по передаче электрической энергии', 'Оказание услуг по передаче электрической энергии'),
-#             ('Осуществление технологического присоединения', 'Осуществление технологического присоединения'),
-#             ('Коммерческий учет электрической энергии', 'Коммерческий учет электрической энергии'),
-#             ('Качество обслуживания потребителей', 'Качество обслуживания потребителей'),
-#             ('Техническое обслуживание электросетевых объектов', 'Техническое обслуживание электросетевых объектов')
-#         ),
-#         widget=forms.RadioSelect,
-#         initial='Качество обслуживания потребителей',
-#         label='Причина звонка'
-#     )
-#     call_otvet = forms.BooleanField(
-#         label='Необходимо сформировать ответ',
-#         initial=False,
-#         required=False,
-#     )
-#     call_date = forms.DateTimeField(
-#         label='',
-#         initial=utils.timezone.now
-#     )
-#     call_user_man = forms.CharField(
-#         label='',
-#     )
-#     # Uni-form
-#     helper = FormHelper()
-#     # helper.form_class = 'form-vertical'
-#     helper.form_class = 'form'
-#     helper.label_class = 'label label-warning'  # this css class attribute will be added to all of the labels in your form. For instance, the "Username: " label will have 'col-md-3'
-#     helper.field_class = 'form-group'  # this css class attribute will be added to all of the input fields in your form. For isntance, the input text box for "Username" will have 'col-md-9'
-#     helper.form_method = 'post'
-#     helper.layout = Layout(
-#         Field('call_entite'),
-#         Field('call_title', placeholder="ФИО Абонента/Название организации"),
-#         Field('call_aim'),
-#         Field('call_otvet',),
-#         Field('call_date', readonly=True),
-#         Field('call_user_man', readonly=True),
-#         FormActions(
-#             Submit('submit', u'Submit', css_class='btn btn-primary'),
-#             Button('cancel', 'Назад', onclick='history.go(-1);')
-#         )
-#     )
 
 class SearchFilterForm(forms.Form):
     location = forms.ChoiceField(widget=forms.Select(), choices='',required=False)

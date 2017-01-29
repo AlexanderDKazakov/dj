@@ -55,6 +55,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'loginsys',
     'jquery',
+    'attachments',
 )
 
 
@@ -122,6 +123,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'files', 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = '/attachments/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'attachments')

@@ -63,7 +63,7 @@ def call_edit(request, call_id=1):
     # HEADING
     call = get_object_or_404(Call, pk=call_id)
     if request.method == "POST":
-        form = MessageForm(request.POST, instance=call)
+        form = MessageForm(request.POST, request.FILES, instance=call)
         if form.is_valid():
             call = form.save(commit=False)
             call.save()
@@ -88,7 +88,7 @@ def new_call(request):
     args['title_button'] = 'Добавить звонок'
     ### HEADING
     if request.method == "POST":
-        form = MessageForm(request.POST)
+        form = MessageForm(request.POST, request.FILES)
         if form.is_valid():
             call = form.save(commit=False)
             call.save()
