@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5b254265-8115-4b5b-bbee-26fa737479eb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/admin.py" afterPath="$PROJECT_DIR$/call/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/static/css/bootstrap.css" afterPath="$PROJECT_DIR$/call/static/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/static/scripts.js" afterPath="$PROJECT_DIR$/call/static/scripts.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/templates/list_call.html" afterPath="$PROJECT_DIR$/call/templates/list_call.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/django_crispy_forms-1.6.1.dist-info/RECORD" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/django_crispy_forms-1.6.1.dist-info/RECORD" />
     </list>
@@ -46,10 +43,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/call/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
+            <state relative-caret-position="748">
               <caret line="136" column="32" lean-forward="false" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
@@ -77,11 +74,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list_call.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="list_call.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/call/templates/list_call.html">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="45" lean-forward="true" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="heading.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/call/templates/heading.html">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -102,8 +109,8 @@
       <file leaf-file-name="scripts.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/call/static/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="31" column="12" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+            <state relative-caret-position="18">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -147,7 +154,6 @@
         <option value="$PROJECT_DIR$/loesk_app/dashboard.py" />
         <option value="$PROJECT_DIR$/call/templates/one_call.html" />
         <option value="$PROJECT_DIR$/static/scripts.js" />
-        <option value="$PROJECT_DIR$/call/templates/heading.html" />
         <option value="$PROJECT_DIR$/loginsys/templates/login.html" />
         <option value="$PROJECT_DIR$/loesk_app/settings.py" />
         <option value="$PROJECT_DIR$/loesk_app/urls.py" />
@@ -159,10 +165,11 @@
         <option value="$PROJECT_DIR$/call/views.py" />
         <option value="$PROJECT_DIR$/call/forms.py" />
         <option value="$PROJECT_DIR$/call/templates/call_edit.html" />
-        <option value="$PROJECT_DIR$/call/static/scripts.js" />
         <option value="$PROJECT_DIR$/call/static/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/call/templates/list_call.html" />
         <option value="$PROJECT_DIR$/call/admin.py" />
+        <option value="$PROJECT_DIR$/call/static/scripts.js" />
+        <option value="$PROJECT_DIR$/call/templates/heading.html" />
+        <option value="$PROJECT_DIR$/call/templates/list_call.html" />
       </list>
     </option>
   </component>
@@ -759,7 +766,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485704168125</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="30.01.17&#10;popup windows --- creating&#10;exporting data from admin panel. Done. &#10;--- CSV&#10;--- XLS&#10;--- XLSX">
+      <created>1485792604541</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1485792604541</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView">
@@ -816,7 +830,8 @@
     <MESSAGE value="29.01.17&#10;Nice logform design." />
     <MESSAGE value="29.01.17&#10;Nice logform design. Add classes to new_call and call_edit" />
     <MESSAGE value="29.01.17&#10;Uploading files done." />
-    <option name="LAST_COMMIT_MESSAGE" value="29.01.17&#10;Uploading files done." />
+    <MESSAGE value="30.01.17&#10;popup windows --- creating&#10;exporting data from admin panel. Done. &#10;--- CSV&#10;--- XLS&#10;--- XLSX" />
+    <option name="LAST_COMMIT_MESSAGE" value="30.01.17&#10;popup windows --- creating&#10;exporting data from admin panel. Done. &#10;--- CSV&#10;--- XLS&#10;--- XLSX" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1154,14 +1169,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/call/templates/heading.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="37" lean-forward="false" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/loesk_app/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1232,14 +1239,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/call/static/scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="12" lean-forward="false" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/call/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -1256,11 +1255,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/call/templates/list_call.html">
+    <entry file="file://$PROJECT_DIR$/call/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="748">
+          <caret line="136" column="32" lean-forward="false" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1281,6 +1282,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/call/templates/heading.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/call/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
@@ -1291,13 +1300,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/call/admin.py">
+    <entry file="file://$PROJECT_DIR$/call/static/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="136" column="32" lean-forward="false" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="18">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/call/templates/list_call.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="45" lean-forward="true" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
