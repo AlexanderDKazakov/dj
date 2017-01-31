@@ -2,7 +2,7 @@
 {% block content %}
 <br>
 <a href="{% url 'call.views.new_call' %}"><button class="btn btn-success btn-lg">Новый звонок</button></a>
-{#<a href="{% url 'call.views.data_out_csv' %}"><button class="btn btn-default btn-lg">Отчёт</button></a>#}
+{#<a href="{% url 'call.views.export_xls' %}"><button class="btn btn-default btn-lg">Отчёт</button></a>#}
 <a href="javascript:PopUpShow()"><button class="btn btn-default btn-lg">Отчёт</button></a>
 {########}
 {#<div class="b-container">#}
@@ -11,7 +11,7 @@
 <div class="b-popup" id="popup1">
 <div class="b-popup-content">
     <p>Здесь будет формировать запрос для отчёта</p>
-{#<a href="{% url 'call.views.data_out_csv' %}"><button class="btn btn-default btn-lg">Отчёт</button>#}
+<a href="{% url 'call.views.export_xls' %}"><button class="btn btn-default btn-lg">Отчёт</button>
 <a href="javascript:PopUpHide()">Hide popup</a>
 </div>
 </div>
