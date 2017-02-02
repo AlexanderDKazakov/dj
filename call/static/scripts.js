@@ -1,6 +1,25 @@
 //INITIAL CONDITIONS
 PopUpHide();
 //
+$(document).on('submit','#myform_requst1',function (e) {
+           e.preventDefault();
+
+           $.ajax({
+               type:"POST",
+               url:"xhr_test/",
+               data:{
+                   date_from:$('#date_from').val(),
+                   date_to:$('#date_to').val(),
+                   inp_otdel:$('#inp_otdel').val(),
+                   // cache:false,
+                   // dataType: "json",
+                   csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+               },
+               success:function(){
+
+               }
+           });
+        });
 // HIDE/SHOW FIELD FOR CONTACT INFORMATION
 var $input = $("#id_call_otvet");
     if ($input.prop('checked')){
@@ -32,3 +51,49 @@ function PopUpShow(){
 function PopUpHide(){
     $("#popup1").hide();
 }
+$("#but1").click(function(){
+      $("#par1").load("data_out/");
+   })
+   //######################################## TEST
+   $(function() {
+      $("#test").click(function() {
+         $.get("xhr_test/", function(data) {
+            alert(data);
+         });
+      });
+    });
+//##########################
+// DATAPICKER
+    $( function() {
+    var dateFormat = "dd/mm/yy",
+      from = $( "#from" )
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1,
+          dateFormat: "dd/mm/yy"
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = $( "#to" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1,
+        dateFormat: "dd/mm/yy"
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+
+      return date;
+    }
+  } );

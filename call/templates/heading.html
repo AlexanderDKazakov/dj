@@ -6,17 +6,18 @@
     <title>{{ args.title_page }}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
     <link rel="icon" type="image/png" href="{% static "img/loesk.jpeg" %}" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.4.1/list.min.js"></script>
-    <script src="http://listjs.com/assets/javascripts/list.min.js"></script>
+    <script type="text/javascript" src="{% static 'list.min.js' %}"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         $(document).ready(function() {
             $.getScript('{% static "scripts.js" %}')
+
         })
     </script>
 </head>
 <body>
-{% if request.user.is_authenticated %}
     <table border="0" class="myTable";>
         <tr>
             <td rowspan="2" width="5%"><a href="/"><img src="{% static "img/loesk.jpeg" %}" alt="LOESK" width="100" height="100"></a></td>
@@ -30,7 +31,5 @@
     </table>
     {% block content %}{% endblock %}
     {% block login %}{% endblock %}
-{% else %}
-{% endif %}
 </body>
 </html>

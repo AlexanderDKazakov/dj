@@ -204,7 +204,7 @@ def export_xls(modeladmin, request, queryset):
         row = [
             count_number,
             row_list[1],
-            str(obj.call_date)[:10],
+            str(obj.call_date)[8:10] + '/' + str(obj.call_date)[5:7] + '/' + str(obj.call_date)[:4],  # dd/mm/yyyy,
             str(obj.call_date)[11:19],
             '',
             '1',
@@ -316,7 +316,7 @@ def export_xlsx(modeladmin, request, queryset):
         row = [
             count_number,
             row_list[1],
-            str(obj.call_date)[:10],
+            str(obj.call_date)[8:10] + '/' + str(obj.call_date)[5:7] + '/' + str(obj.call_date)[:4],  # dd/mm/yyyy
             str(obj.call_date)[11:19],
             '',
             1,
