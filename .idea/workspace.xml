@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b254265-8115-4b5b-bbee-26fa737479eb" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/call/static/img/loesk.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/static/scripts.js" afterPath="$PROJECT_DIR$/call/static/scripts.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/templates/heading.html" afterPath="$PROJECT_DIR$/call/templates/heading.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call/templates/list_call.html" afterPath="$PROJECT_DIR$/call/templates/list_call.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/django_crispy_forms-1.6.1.dist-info/RECORD" afterPath="$PROJECT_DIR$/djangoenv/lib/python3.4/site-packages/django_crispy_forms-1.6.1.dist-info/RECORD" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,10 +87,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list_call.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="list_call.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/call/templates/list_call.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="324">
               <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -101,11 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="heading.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="heading.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/call/templates/heading.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+            <state relative-caret-position="342">
+              <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -165,9 +164,9 @@
         <option value="$PROJECT_DIR$/call/admin.py" />
         <option value="$PROJECT_DIR$/call/views.py" />
         <option value="$PROJECT_DIR$/call/urls.py" />
-        <option value="$PROJECT_DIR$/call/templates/heading.html" />
         <option value="$PROJECT_DIR$/call/static/scripts.js" />
         <option value="$PROJECT_DIR$/call/templates/list_call.html" />
+        <option value="$PROJECT_DIR$/call/templates/heading.html" />
       </list>
     </option>
   </component>
@@ -274,6 +273,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="call" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -841,7 +862,14 @@
       <option name="project" value="LOCAL" />
       <updated>1486044016200</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="03.02.2017&#10;&#10;table header stay at the same position every time.&#10;add new filter on users.&#10;comment some scripts in scripts.js --- its unnecessary or useless code.">
+      <created>1486120436275</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1486120436275</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView">
@@ -903,7 +931,8 @@
     <MESSAGE value="31.01.17&#10;--- From AdminPanel --- alles gut.&#10;--- From UserInterface --- need more time.&#10;&#10;configure exporting data from admin panel. Need a tests.&#10;" />
     <MESSAGE value="02.02.2017&#10;&#10;excel_out_put --- date range" />
     <MESSAGE value="02.02.2017&#10;&#10;excel_out_put --- date range. Done" />
-    <option name="LAST_COMMIT_MESSAGE" value="02.02.2017&#10;&#10;excel_out_put --- date range. Done" />
+    <MESSAGE value="03.02.2017&#10;&#10;table header stay at the same position every time.&#10;add new filter on users.&#10;comment some scripts in scripts.js --- its unnecessary or useless code." />
+    <option name="LAST_COMMIT_MESSAGE" value="03.02.2017&#10;&#10;table header stay at the same position every time.&#10;add new filter on users.&#10;comment some scripts in scripts.js --- its unnecessary or useless code." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1322,14 +1351,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/call/templates/heading.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/call/static/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1340,12 +1361,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/call/templates/list_call.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="324">
           <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h4#0;n#div#1;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/call/templates/heading.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
