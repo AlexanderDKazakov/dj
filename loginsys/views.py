@@ -16,7 +16,7 @@ def login(request):
             auth.login(request, user)
             return redirect('/')
         else:
-            args['login_error'] = "Пользователь не найден"
+            args['login_error'] = "Неправильное имя пользователя или пароль"
             return render_to_response('login.html', args)
 
     else:
