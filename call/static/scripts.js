@@ -1,25 +1,25 @@
 //INITIAL CONDITIONS
 PopUpHide();
 //
-$(document).on('submit','#myform_requst1',function (e) {
-           e.preventDefault();
-
-           $.ajax({
-               type:"POST",
-               url:"xhr_test/",
-               data:{
-                   date_from:$('#date_from').val(),
-                   date_to:$('#date_to').val(),
-                   inp_otdel:$('#inp_otdel').val(),
-                   // cache:false,
-                   // dataType: "json",
-                   csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
-               },
-               success:function(){
-
-               }
-           });
-        });
+// $(document).on('submit','#myform_requst1',function (e) {
+//            e.preventDefault();
+//
+//            $.ajax({
+//                type:"POST",
+//                url:"xhr_test/",
+//                data:{
+//                    date_from:$('#date_from').val(),
+//                    date_to:$('#date_to').val(),
+//                    inp_otdel:$('#inp_otdel').val(),
+//                    // cache:false,
+//                    // dataType: "json",
+//                    csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+//                },
+//                success:function(){
+//
+//                }
+//            });
+//         });
 // HIDE/SHOW FIELD FOR CONTACT INFORMATION
 var $input = $("#id_call_otvet");
     if ($input.prop('checked')){
@@ -40,7 +40,7 @@ $("#id_call_otvet").click(function(){
 // END H/S
 // SORTING&FILTERS
 var options = {
-    valueNames: [ 'name', 'date', 'aim' ]
+    valueNames: [ 'name', 'date', 'aim', 'user' ]
 };
 var userList = new List('users', options);
 // END S&F
@@ -51,19 +51,19 @@ function PopUpShow(){
 function PopUpHide(){
     $("#popup1").hide();
 }
-$("#but1").click(function(){
-      $("#par1").load("data_out/");
-   })
-   //######################################## TEST
-   $(function() {
-      $("#test").click(function() {
-         $.get("xhr_test/", function(data) {
-            alert(data);
-         });
-      });
-    });
+// $("#but1").click(function(){
+//       $("#par1").load("data_out/");
+//    })
+   // //######################################## TEST
+   // $(function() {
+   //    $("#test").click(function() {
+   //       $.get("xhr_test/", function(data) {
+   //          alert(data);
+   //       });
+   //    });
+   //  });
 //##########################
-// DATAPICKER
+// DATAPICKER EXPORT FUNCTION
     $( function() {
     var dateFormat = "dd/mm/yy",
       from = $( "#from" )
@@ -97,3 +97,4 @@ $("#but1").click(function(){
       return date;
     }
   } );
+//

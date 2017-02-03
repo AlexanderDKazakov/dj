@@ -3,13 +3,14 @@
 {% load crispy_forms_tags %}
 <br>
 <a href="{% url 'call.views.new_call' %}"><button class="btn btn-success btn-lg">Новый звонок</button></a>
-{#<a href="{% url 'call.views.export_xls' %}"><button class="btn btn-default btn-lg">Отчёт</button></a>#}
+{% if args.user_group == 'Руководитель'  %}
 <a href="javascript:PopUpShow()"><button class="btn btn-default btn-lg">Отчёт</button></a>
 <div class="b-popup" id="popup1">
 <div class="b-popup-content">
+    <p align="right" style="margin-right: 5px"><a href="javascript:PopUpHide()">Х</a></p>
     <form id="myform_requst" action="export_excel_out/" method="POST"> {% csrf_token %}
         <h1>Формирование отчёта</h1>
-        <h3>Можно дополнительные поля сюда вписать</h3>
+{#        <h3>Можно дополнительные поля сюда вписать</h3>#}
         <h3>Отчётный период</h3>
         <label for="from" class="h4">с</label>
         <input type="text" id="from" name="date_from">
@@ -19,16 +20,18 @@
         <input type="submit" class="btn btn-default" value="Подготовить отчёт"/>
         </div>
     </form>
-<p align="right"><a href="javascript:PopUpHide()">Hide popup</a></p>
+
 </div>
 </div>
+{% endif %}
 <h4>{{ args.top_message }}</h4>
 <div align="right" id="users">
-  <input class="search" placeholder="Поиск по имени" />
-  <button class="sort" data-sort="aim">Сортировка по причине звонка:</button>
-  <table  border="0" align="center" width="100%" margin-top = 2%>
+<h4 style="margin-right: 23%; margin-top: -80px">Сортировки по:</h4>
+  <input class="search" placeholder="Поиск по ФИО" />
+  <button class="sort" data-sort="aim">причине звонка</button>
+  <button class="sort" data-sort="user">операторам</button>
+  <table width="100%" margin-top = 2%>
     <!-- IMPORTANT, class="list" have to be at tbody -->
-    <tbody class="list">
     <tr>
         <td>
             <h4>ФИО абонента</h4>
@@ -42,8 +45,10 @@
         <td>
             <h4>Принял</h4>
         </td>
+{#        <tr style="border-bottom: 1px solid #000;"></tr>#}
     </tr>
-    <tr style="border-bottom: 1px solid #000;"></tr>
+      <tbody class="list">
+
     {% for call in args.call_for_filial %}
         <tr>
             <td>
@@ -56,7 +61,7 @@
                 <h4 class="aim"> {{ call.call_aim }} </h4>
             </td>
             <td>
-                <h4> {{ call.call_user_man }} </h4>
+                <h4 class="user"> {{ call.call_user_man }} </h4>
             </td>
         </tr>
 {#        {{ call.call_user_man_filial }}#}
