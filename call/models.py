@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 ### SIGNALS
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-
+import datetime
 
 class Aim_call(models.Model):
     class Meta:
@@ -100,6 +100,20 @@ class Call(models.Model):
     call_user_man = models.CharField(max_length=50, verbose_name='Логин оператора:', blank=True, null=True)
     call_user_man_filial = models.CharField(max_length=100, verbose_name='Филиал оператора:', blank=True, null=True)
     call_user_man_otdel = models.CharField(max_length=100, verbose_name='Отдел оператора', blank=True, null=True)
+
+################
+# @register.filter
+## def related_deltas(obj, epk):
+##         return obj.get_related_deltas(epk)
+# def calliswhat(obj, call_id):
+#     now = timezone.now()
+#     if call.call_date < now:
+#         return True
+#################
+    def calliswhat(self):
+        now = timezone.now()
+        if (now - self.call_date) > datetime.timedelta(6, 100, 100):
+            return True
 
     def __str__(self):
         return self.call_title

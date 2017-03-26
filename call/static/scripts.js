@@ -97,4 +97,14 @@ function PopUpHide(){
       return date;
     }
   } );
-//
+// END DATAPICKER
+// COLOR THE TABLE DEPENDING ON DATE
+//     $(function () {
+//     var currentdate = new Date();
+//     var d = new Date();
+//     var datetime = "Last Sync: " + currentdate.getDate() + "/" + (currentdate.getMonth()+1) + "/" + currentdate.getFullYear() + " @ " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+//     // document.getElementById("callDate123").innerHTML = d.toUTCString();
+//     document.write(datetime);
+//     // document.write("<br>");
+//     // document.write(d);
+//     });

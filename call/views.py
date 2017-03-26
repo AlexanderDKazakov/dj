@@ -17,6 +17,7 @@ import csv
 # Create your views here.
 
 
+
 def list_call(request):
     args = {}
     args['title_page'] = 'ЛОЭСК | Главная'
@@ -31,9 +32,9 @@ def list_call(request):
         args['user_otdel'] = user.profile.user_otdel
         args['user_res'] = user.profile.user_res
         args['user_group'] = request.user.groups.values_list('name', flat=True).first()
-        args['call_for_filial'] = Call.objects.filter(call_user_man_filial=args['user_filial'])
         args['top_message'] = 'Список всех звонков:'
-        args['list_call'] = Call.objects.all().order_by('-call_date')
+        args['time_now'] = datetime.datetime.now()
+        args['call_for_filial'] = Call.objects.filter(call_user_man_filial=args['user_filial'])
         return render(request, 'list_call.html', {'args': args})
     else:
         user_id = args['id']
@@ -42,7 +43,8 @@ def list_call(request):
         args['user_otdel'] = user.profile.user_otdel
         args['user_res'] = user.profile.user_res
         args['user_group'] = request.user.groups.values_list('name', flat=True).first()
-        args['top_message'] = 'Список звонков по которым необходимо сформировать ответ:'
+        args['top_message'] = 'Список звонков, по которым необходимо сформировать ответ:'
+        args['time_now'] = datetime.datetime.now()
         args['call_for_filial'] = Call.objects.filter(call_user_man_filial=args['user_filial']).filter(call_otvet=True).order_by('-call_date')
         return render(request, 'list_call.html', {'args': args})
 

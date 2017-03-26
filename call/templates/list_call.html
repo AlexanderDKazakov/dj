@@ -2,10 +2,15 @@
 {% block content %}
 {% load crispy_forms_tags %}
 <br>
-<a href="{% url 'call.views.new_call' %}"><button class="btn btn-success btn-lg">Новый звонок</button></a>
-{% if args.user_group == 'Руководитель'  %}
-<a href="javascript:PopUpShow()"><button class="btn btn-default btn-lg">Отчёт</button></a>
-<div class="b-popup" id="popup1">
+<div id="users">
+<table border="0">
+    <tr>
+        <td rowspan="2">
+            <div align="left">
+            <a href="{% url 'call.views.new_call' %}"><button class="btn btn-success btn-lg">Новый звонок</button></a>
+            {% if args.user_group == 'Руководитель'  %}
+                <a href="javascript:PopUpShow()"><button class="btn btn-default btn-lg">Отчёт</button></a>
+                <div class="b-popup" id="popup1">
 <div class="b-popup-content">
     <p align="right" style="margin-right: 5px"><a href="javascript:PopUpHide()">Х</a></p>
     <form id="myform_requst" action="export_excel_out/" method="POST"> {% csrf_token %}
@@ -20,56 +25,75 @@
         <input type="submit" class="btn btn-default" value="Подготовить отчёт"/>
         </div>
     </form>
+</div>
+</div>
+            {% endif %}
+            </div>
+        </td>
+        <td><h4>Сортировки по:</h4></td>
+        <td>
+{#            <div align="right">#}
+{#                <h4>Сортировки по:</h4>#}
+{#                <input class="search" size="21" placeholder="Поиск по ключевым словам"/>#}
+{#                <button class="sort" data-sort="aim">причине звонка</button>#}
+{#                <button class="sort" data-sort="user">операторам</button>#}
+{#            </div>#}
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td width="220px" align="right">
+            <input class="search" size="21" placeholder="Поиск по ключевым словам"/>
+        </td>
+        <td width="180px" align="right">
+            <button class="sort" data-sort="aim">причине звонка</button>
+        </td>
+        <td width="160px" align="right">
+            <button class="sort" data-sort="user">операторам</button>
+        </td>
+    </tr>
+    <tr>
+        <td><h4>{{ args.top_message }}</h4></td>
+    </tr>
+</table>
 
-</div>
-</div>
-{% endif %}
-<h4>{{ args.top_message }}</h4>
-<div align="right" id="users">
-<h4 style="margin-right: 23%; margin-top: -80px">Сортировки по:</h4>
-  <input class="search" placeholder="Поиск по ФИО" />
-  <button class="sort" data-sort="aim">причине звонка</button>
-  <button class="sort" data-sort="user">операторам</button>
-  <table width="100%" margin-top = 2%>
+    <br>
+<table>
     <!-- IMPORTANT, class="list" have to be at tbody -->
     <tr>
-        <td>
+        <td class="td_call_list">
             <h4>ФИО абонента</h4>
         </td>
-        <td>
+        <td class="td_call_list">
             <h4>Дата обращения</h4>
         </td>
-        <td>
+        <td class="td_call_list">
             <h4>Причина звонка</h4>
         </td>
-        <td>
+        <td class="td_call_list">
             <h4>Принял</h4>
         </td>
 {#        <tr style="border-bottom: 1px solid #000;"></tr>#}
     </tr>
-      <tbody class="list">
-
+    <tbody class="list">
     {% for call in args.call_for_filial %}
         <tr>
-            <td>
-                <h4 class="name"><a href="/call/get/{{ call.id }}">{{ call.call_title }}</a></h4>
+{#        {% assign style "text-underline: red;" if call.call_date < args.time_now else "" %}#}
+            <td class="td_call_list">
+                <h4 class="name" ><a href="/call/get/{{ call.id }}">{{ call.call_title }}</a></h4>
             </td>
-            <td>
-                <h4 class="date"> {{ call.call_date }} </h4>
+            <td class="td_call_list">
+                <h4 class="date" {% if call.calliswhat %} style="color: red" {% endif %}> {{ call.call_date | date:"SHORT_DATE_FORMAT"}} </h4>
             </td>
-            <td>
-                <h4 class="aim"> {{ call.call_aim }} </h4>
+            <td class="td_call_list">
+                <h4 class="aim" style="{{ style }}"> {{ call.call_aim }} </h4>
             </td>
-            <td>
-                <h4 class="user"> {{ call.call_user_man }} </h4>
+            <td class="td_call_list">
+                <h4 class="user" style="{{ style }}"> {{ call.call_user_man }} </h4>
             </td>
         </tr>
-{#        {{ call.call_user_man_filial }}#}
-{#        {{ args.user_filial }}#}
     {% endfor %}
-  </tbody>
-  </table>
-
-
-</div>
+    </tbody>
+</table>
+{#</div>#}
 {% endblock content %}
