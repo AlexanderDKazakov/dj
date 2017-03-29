@@ -88,7 +88,7 @@ class Call(models.Model):
         db_table = "call"
         ordering = ['-call_date']
     call_title      = models.CharField(max_length=200, verbose_name='ФИО абонента:')
-    call_entite     = models.ForeignKey(legalEntity, verbose_name='Лицо:', default=id(1))
+    call_entite     = models.ForeignKey(legalEntity, verbose_name='Лицо:', default=id(1), blank=True)
     call_document   = models.FileField(verbose_name='Приложить документ:',upload_to='documents/%Y/%m/%d/', blank=True, null=True)
     call_otvet      = models.BooleanField(default=False, verbose_name='Необходимо подготовить ответ:')
     call_aim        = models.ForeignKey(Aim_call, verbose_name='Цель звонка:', default=id(1))

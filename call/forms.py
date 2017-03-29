@@ -5,9 +5,13 @@ from django import utils
 from django.forms.fields import DateField, ChoiceField, MultipleChoiceField
 from django.forms.widgets import RadioSelect, CheckboxSelectMultiple
 from django.forms.extras.widgets import SelectDateWidget
+
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
+from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
+
 from call.models import Call
 from django.contrib import auth
-
 
 # from crispy_forms.helper import FormHelper
 # from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
@@ -30,9 +34,9 @@ from django.contrib import auth
 #
 # ABONENT = (('f', 'Физическое лицо'), ('u', 'Юридическое лицо'))
 #
-# class MessageForm(forms.ModelForm):
+# class NewCallForm(forms.ModelForm):
 #     def __init__(self, *args, **kwargs):
-#         super(MessageForm, self).__init__(*args, **kwargs)
+#         super(NewCallForm, self).__init__(*args, **kwargs)
 #         instance = getattr(self, 'instance', None)
 #         if not (instance and instance.pk):
 #             self.fields['call_user_man'].widget.attrs['readonly'] = True
@@ -57,16 +61,11 @@ from django.contrib import auth
 #             'call_user_man',
 #         )
 ########################################
-from django import forms
 
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
-from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
-
-
-class MessageForm(forms.ModelForm):
+class NewCallForm(forms.ModelForm):
     class Meta:
         model = Call
+
         fields = ['call_title',
                   'call_entite',
                   'call_aim',
@@ -81,15 +80,16 @@ class MessageForm(forms.ModelForm):
                   'call_user_man_otdel',
                   ]
     # Uni-form
+
     helper = FormHelper()
     # helper.label_class = 'label label-warning'  # this css class attribute will be added to all of the labels in your form. For instance, the "Username: " label will have 'col-md-3'
     helper.field_class = 'form-group'  # this css class attribute will be added to all of the input fields in your form. For isntance, the input text box for "Username" will have 'col-md-9'
     helper.form_method = 'post'
     helper.layout = Layout(
-        Field('call_entite'),
-        Field('call_title', placeholder='ФИО Абонента/Название организации'),
+        Field('call_entite', required=True),
+        Field('call_title', placeholder='ФИО Абонента/Название организации', required=True),
         Field('call_aim'),
-        Field('call_aim_detail'),
+        Field('call_aim_detail', placeholder='Опишите кратко детали' , required=True),
         Field('call_otvet', initial=False),
         Field('call_kontact', placeholder='Контакты для связи: +7 (XXX) XXX XX XX'),
         Field('call_document'),
@@ -104,7 +104,11 @@ class MessageForm(forms.ModelForm):
         )
     )
     def __init__(self, *args, **kwargs):
-        super(MessageForm, self).__init__(*args, **kwargs)
+        super(NewCallForm, self).__init__(*args, **kwargs)
+
+        # self.fields['call_entite'].required = True
+        # self.fields['call_title'].required = True
+
         self.fields['call_kontact'].label = ''
         self.fields['call_date'].label = ''
         self.fields['call_user_man'].label = ''
@@ -115,8 +119,8 @@ class MessageForm(forms.ModelForm):
 
         # self.fields['call_kontact'].style = 'display : none;'
 
-class QueryRequest(forms.Form):
-    text_input = forms.CharField()
+# class QueryRequest(forms.Form):
+#     text_input = forms.CharField()
 
     # textarea = forms.CharField(
     #     widget = forms.Textarea(),
@@ -142,35 +146,95 @@ class QueryRequest(forms.Form):
     #     help_text = "<strong>Note:</strong> Labels surround all the options for much larger click areas and a more usable form.",
     # )
 
-    appended_text = forms.CharField(
-        help_text = "Here's more help text"
-    )
+    # appended_text = forms.CharField(
+    #     help_text = "Here's more help text"
+    # )
+    #
+    ## Uni-form
+    # helper = FormHelper()
+    # helper.form_class = 'form-horizontal'
+    # helper.layout = Layout(
+    #     Field('text_input', css_class='input-xlarge'),
+    #     Field('textarea', rows="3", css_class='input-xlarge'),
+    #     'radio_buttons',
+    #     Field('checkboxes', style="background: #FAFAFA; padding: 10px;"),
+    #     AppendedText('appended_text', '.00'),
+    #     PrependedText('prepended_text', '<input type="checkbox" checked="checked" value="" id="" name="">', active=True),
+    #     PrependedText('prepended_text_two', '@'),
+    #     'multicolon_select',
+    #     FormActions(
+    #         Submit('save_changes', 'Save changes', css_class="btn-primary"),
+    #         Submit('cancel', 'Cancel'),
+    #     )
+    # )
+# class SearchFilterForm(forms.Form):
+#     location = forms.ChoiceField(widget=forms.Select(), choices='',required=False)
+#     type = forms.ChoiceField(widget=forms.Select(), choices='',required=False)
+#     fromdate = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'dd/mm/yyyy','class':'datefield','readonly':'readonly'}))
+#     todate = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'dd/mm/yyyy','class':'datefield','readonly':'readonly'}))
+#     search_keyword = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Keyword Search','class':'keyword-search'}))
+
+
+class EditCallForm(forms.ModelForm):
+    class Meta:
+        model = Call
+
+        fields = [
+            'call_title',
+            # 'call_entite',
+            # 'call_aim',
+            'call_aim_detail',
+            'call_otvet',
+            'call_document',
+            'call_kontact',
+            'call_date',
+            'call_user_man',
+            'call_act',
+            'call_user_man_filial',
+            'call_user_man_otdel',
+            ]
 
     # Uni-form
+
     helper = FormHelper()
-    helper.form_class = 'form-horizontal'
+    # helper.label_class = 'label label-warning'  # this css class attribute will be added to all of the labels in your form. For instance, the "Username: " label will have 'col-md-3'
+    helper.field_class = 'form-group'  # this css class attribute will be added to all of the input fields in your form. For isntance, the input text box for "Username" will have 'col-md-9'
+    helper.form_method = 'post'
+    helper.html5_required = True
+    # html5_required = False
     helper.layout = Layout(
-        Field('text_input', css_class='input-xlarge'),
-        Field('textarea', rows="3", css_class='input-xlarge'),
-        'radio_buttons',
-        Field('checkboxes', style="background: #FAFAFA; padding: 10px;"),
-        AppendedText('appended_text', '.00'),
-        PrependedText('prepended_text', '<input type="checkbox" checked="checked" value="" id="" name="">', active=True),
-        PrependedText('prepended_text_two', '@'),
-        'multicolon_select',
+        # Field('call_entite', readonly=True),
+        Field('call_title', placeholder='ФИО Абонента/Название организации', readonly=True),
+        # Field('call_aim', readonly=True),
+        Field('call_aim_detail', readonly=True),
+        Field('call_otvet', initial=False),
+        Field('call_kontact', placeholder='Контакты для связи: +7 (XXX) XXX XX XX'),
+        Field('call_document'),
+        Field('call_act'),
+        Field('call_date', readonly=True, style='display: none;'),
+        Field('call_user_man', readonly=True, style='display: none;'),
+        Field('call_user_man_filial', readonly=True, style='display: none;'),
+        Field('call_user_man_otdel', readonly=True, style='display: none;'),
         FormActions(
-            Submit('save_changes', 'Save changes', css_class="btn-primary"),
-            Submit('cancel', 'Cancel'),
+            Submit('submit', 'Cохранить', css_class='btn btn-success btn-lg'),
+            Button('cancel', 'Назад', css_class='btn btn-default btn-lg', onclick='history.go(-1);')
         )
     )
+    def __init__(self, *args, **kwargs):
+        super(EditCallForm, self).__init__(*args, **kwargs)
+
+        # self.fields['call_entite'].widget = forms.CheckboxInput(attrs={'readonly': True})
+        ###
+        # self.fields['call_aim'] = forms.ChoiceField(widget=forms.Select(attrs={'disabled': 'disabled'}))
+        # self.fields['call_aim'].label = 'Цель звонка:'
+        ###
+        # self.fields['call_entite'].widget.attrs['readonly'] = True
+        self.fields['call_kontact'].label = ''
+        self.fields['call_date'].label = ''
+        self.fields['call_user_man'].label = ''
+        self.fields['call_user_man_filial'].label = ''
+        self.fields['call_user_man_otdel'].label = ''
+        self.fields['call_otvet'].label = 'Необходимо подготовить ответ'
 
 
-
-
-
-class SearchFilterForm(forms.Form):
-    location = forms.ChoiceField(widget=forms.Select(), choices='',required=False)
-    type = forms.ChoiceField(widget=forms.Select(), choices='',required=False)
-    fromdate = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'dd/mm/yyyy','class':'datefield','readonly':'readonly'}))
-    todate = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'dd/mm/yyyy','class':'datefield','readonly':'readonly'}))
-    search_keyword = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Keyword Search','class':'keyword-search'}))
+        # self.fields['call_kontact'].style = 'display : none;'
