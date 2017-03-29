@@ -33,6 +33,9 @@
 <body>
 <table width="20%">
     <tr>
+        <td height="200"></td>
+    </tr>
+    <tr>
         <td class="td_call_list" style="border: 0px">
             <a href="/"><img src="{% static "img/loesk.jpeg" %}" alt="LOESK" width="200" height="200"></a>
         </td>
@@ -43,11 +46,13 @@
                 {% csrf_token %}
                 <br>
                 <label for="username"></label>
-                <input class="panel-title text-center" type="text" name="username" id="username" placeholder="Введите логин" required autofocus>
+                <input class="panel-title text-center" type="text" name="username"
+                       id="username" placeholder="Введите логин" required autofocus>
                 <br>
                 <label for="password"></label>
-                <input class="panel-title text-center" type="password" name="password" id="password" placeholder="Введите пароль" required>
-                <br  class="panel-title">
+                <input class="panel-title text-center" type="password" name="password"
+                       id="password" placeholder="Введите пароль" required>
+{#                <br class="panel-title">#}
                 {% if login_error %}
                     <h4> {{ login_error }} </h4>
                 {% endif %}

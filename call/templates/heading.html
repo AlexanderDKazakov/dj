@@ -20,13 +20,35 @@
 <body>
     <table align="center">
         <tr>
-            <td class="td_call_list" rowspan="2" width="5%"><a href="/"><img src="{% static "img/loesk.jpeg" %}" alt="LOESK" width="100" height="100"></a></td>
-            <td class="td_call_list" class="header-text_white"><h3>{% if args.user_res %}Филиал: {{ args.user_filial }} <span style='padding-left:50px;'> </span> РЭС: {{ args.user_res }}{% else %}Филиал: {{ args.user_filial }}  {% endif %}</h3></td>
-            <td class="td_call_list" class = header-text_td width="130px"><h5>{{ args.user_group }}</h5></td>
-            <td class="td_call_list" class = header-text_td width="130px"><h5><a href="/auth/logout">Выйти ({{ args.username }})</a></h5></td>
+            <td class="td_call_list" rowspan="2" width="5%">
+                <a href="/"><img src="{% static "img/loesk.jpeg" %}" alt="LOESK" width="100" height="100"></a>
+            </td>
+            <td class="td_call_list" class="header-text_white">
+                <h3>
+                    {% if args.user_res %}
+                        Филиал: {{ args.user_filial }} <span style='padding-left:50px;'> </span> РЭС: {{ args.user_res }}
+                    {% else %}
+                        Филиал: {{ args.user_filial }}
+                    {% endif %}
+                </h3>
+            </td>
+            <td class="td_call_list" class = header-text_td width="130px">
+                <h5>
+                    {{ args.user_group }}
+                </h5>
+            </td>
+            <td class="td_call_list" class = header-text_td width="130px">
+                <h5><a href="/auth/logout">Выйти ({{ args.username }})</a></h5>
+            </td>
         </tr>
         <tr>
-            <td bgcolor="#ff9400" align="center" class="header-text_white"><h5>Отдел: {{ args.user_otdel }}</h5></td>
+            <td bgcolor="#ff9400" align="center" class="header-text_white">
+                <h4>
+                    {% if args.user_otdel %}Отдел: {{ args.user_otdel }}
+                    {% else %}
+                    {% endif %}
+                </h4>
+            </td>
             <td bgcolor="#ff9400"></td>
             <td bgcolor="#ff9400"></td>
         </tr>
