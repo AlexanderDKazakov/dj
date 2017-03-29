@@ -15,6 +15,45 @@ class Aim_call(models.Model):
         # return 'aim_call: {}'.format(self.ac_name)
         return self.ac_name
 
+class reason_call_operator_dispetcher(models.Model):
+    class Meta:
+        db_table = "reason_call_operator_dispetcher"
+    rc_name = models.CharField(max_length=200, verbose_name='Причина обращения:', blank=True, null=True)
+    def __str__(self):
+        return self.rc_name
+
+
+class reason_call_operator_CPES(models.Model):
+    class Meta:
+        db_table = "reason_call_operator_CPES"
+    rc_name = models.CharField(max_length=200, verbose_name='Причина обращения:', blank=True, null=True)
+    def __str__(self):
+        return self.rc_name
+
+
+class reason_call_operator_PTO(models.Model):
+    class Meta:
+        db_table = "reason_call_operator_PTO"
+    rc_name = models.CharField(max_length=200, verbose_name='Причина обращения:', blank=True, null=True)
+    def __str__(self):
+        return self.rc_name
+
+
+class reason_call_operator_CA(models.Model):
+    class Meta:
+        db_table = "reason_call_operator_CA"
+    rc_name = models.CharField(max_length=200, verbose_name='Причина обращения:', blank=True, null=True)
+    def __str__(self):
+        return self.rc_name
+
+
+class reason_call_operator_secretar(models.Model):
+    class Meta:
+        db_table = "reason_call_operator_secretar"
+    rc_name = models.CharField(max_length=200, verbose_name='Причина обращения:', blank=True, null=True)
+    def __str__(self):
+        return self.rc_name
+
 
 class legalEntity(models.Model):
     class Meta:
@@ -91,7 +130,7 @@ class Call(models.Model):
     call_entite     = models.ForeignKey(legalEntity, verbose_name='Лицо:', default=id(1), blank=True)
     call_document   = models.FileField(verbose_name='Приложить документ:',upload_to='documents/%Y/%m/%d/', blank=True, null=True)
     call_otvet      = models.BooleanField(default=False, verbose_name='Необходимо подготовить ответ:')
-    call_aim        = models.ForeignKey(Aim_call, verbose_name='Цель звонка:', default=id(1))
+    call_aim        = models.ForeignKey(Aim_call, verbose_name='Цель звонка:', default=id(1), blank=True, null=True)
     call_aim_detail = models.CharField(max_length=300, verbose_name='Детали звонка:', blank=True, null=True)
     call_act        = models.ForeignKey(ActOperator, verbose_name='Действие оператора:', default=id(1))
     call_kontact    = models.CharField(max_length=150, verbose_name='Контакты для связи:', blank=True, null=True)

@@ -1,10 +1,13 @@
 from django.contrib import admin
-from call.models import Call, Profile, Filial, legalEntity, Aim_call, Res, Otdel, ActOperator
+# from call.models import Call, Profile, Filial, legalEntity, Aim_call, Res, Otdel, ActOperator
+# from call.models import reason_call_operator_dispetcher, reason_call_operator_CPES, reason_call_operator_PTO, reason_call_operator_CA, reason_call_operator_secretar
+from call.models import *
 from attachments.admin import AttachmentInlines
 
 ######## EXPORTING
 from django.http import HttpResponse
 import datetime
+
 
 def export_csv(modeladmin, request, queryset):
     # FUNCTION NOT FINISHED; PROBABLY ITS WILL BE DELETED
@@ -216,9 +219,8 @@ def export_xls(modeladmin, request, queryset):
 
     wb.save(response)
     return response
-
-
 export_xls.short_description = u"Export XLS"
+
 
 def export_xlsx(modeladmin, request, queryset):
     import openpyxl
@@ -330,9 +332,9 @@ def export_xlsx(modeladmin, request, queryset):
 
     wb.save(response)
     return response
-
 export_xlsx.short_description = u"Export XLSX"
-#####
+
+
 class CallAdmin(admin.ModelAdmin):
     actions = [export_xls, export_xlsx]
     list_filter = ['call_entite',
@@ -353,6 +355,12 @@ admin.site.register(Profile)
 admin.site.register(Filial)
 admin.site.register(legalEntity)
 admin.site.register(Aim_call)
+admin.site.register(reason_call_operator_dispetcher)
+admin.site.register(reason_call_operator_CPES)
+admin.site.register(reason_call_operator_PTO)
+admin.site.register(reason_call_operator_CA)
+admin.site.register(reason_call_operator_secretar)
+
 admin.site.register(Res)
 admin.site.register(Otdel)
 admin.site.register(ActOperator)

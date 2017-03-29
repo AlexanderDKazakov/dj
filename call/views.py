@@ -40,7 +40,8 @@ def list_call(request):
         args['user_group'] = request.user.groups.values_list('name', flat=True).first()
         args['top_message'] = 'Список звонков, по которым необходимо сформировать ответ:'
         args['time_now'] = datetime.datetime.now()
-        args['call_for_filial'] = Call.objects.filter(call_user_man_filial=args['user_filial']).filter(call_otvet=True).order_by('-call_date')
+        args['call_for_filial'] = Call.objects.filter(call_user_man_filial=args['user_filial']).filter(
+            call_otvet=True).filter(call_user_man_otdel=args['user_otdel']).order_by('-call_date')
         return render(request, 'list_call.html', {'args': args})
 
 
