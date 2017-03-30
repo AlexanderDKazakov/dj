@@ -85,6 +85,15 @@ function PopUpHide(){
       .on( "change", function() {
         from.datepicker( "option", "maxDate", getDate( this ) );
       });
+      to = $( "#id_call_date_end" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1,
+        dateFormat: "dd.mm.yy"
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
 
     function getDate( element ) {
       var date;
@@ -98,6 +107,13 @@ function PopUpHide(){
     }
   } );
 // END DATAPICKER
+// START DATATIMEPICKER
+// $( function() {
+//     to = $('#id_call_date_end').datetimepicker({
+// 	timeFormat: "hh:mm tt"
+// });
+// }
+// END DATATIMEPICKER
 // COLOR THE TABLE DEPENDING ON DATE
 //     $(function () {
 //     var currentdate = new Date();

@@ -68,6 +68,9 @@
             <h4>Дата обращения</h4>
         </td>
         <td class="td_call_list">
+            <h4>Дата закрытия обращения</h4>
+        </td>
+        <td class="td_call_list">
             <h4>Причина обращения</h4>
         </td>
         <td class="td_call_list">
@@ -78,12 +81,15 @@
     <tbody class="list">
     {% for call in args.call_for_filial %}
         <tr>
-{#        {% assign style "text-underline: red;" if call.call_date < args.time_now else "" %}#}
+{#        {% assign style "text-underline: red;" if call.call_date_start < args.time_now else "" %}#}
             <td class="td_call_list">
                 <h4 class="name" ><a href="/call/get/{{ call.id }}">{{ call.call_title }}</a></h4>
             </td>
             <td class="td_call_list">
-                <h4 class="date" {% if call.calliswhat %} style="color: red" {% endif %}> {{ call.call_date | date:"SHORT_DATE_FORMAT"}} </h4>
+                <h4 class="date" {% if call.calliswhat %} style="color: red" {% endif %}> {{ call.call_date_start | date:"SHORT_DATE_FORMAT"}} </h4>
+            </td>
+            <td class="td_call_list">
+                <h4 class="date"> {{ call.call_date_end | date:"SHORT_DATE_FORMAT"}} </h4>
             </td>
             <td class="td_call_list">
                 <h4 class="aim" style="{{ style }}"> {{ call.call_aim }} </h4>

@@ -1,8 +1,7 @@
 from django.contrib import admin
-# from call.models import Call, Profile, Filial, legalEntity, Aim_call, Res, Otdel, ActOperator
-# from call.models import reason_call_operator_dispetcher, reason_call_operator_CPES, reason_call_operator_PTO, reason_call_operator_CA, reason_call_operator_secretar
 from call.models import *
 from attachments.admin import AttachmentInlines
+from django.contrib.admin import DateFieldListFilter
 
 ######## EXPORTING
 from django.http import HttpResponse
@@ -84,7 +83,7 @@ def export_csv(modeladmin, request, queryset):
                 [
                     count_number,
                     'Инд.номер',
-                    # call.call_date.[:10],
+                    # call.call_date_start.[:10],
                     ' ', ' ',
                     '+',
                     ' ', ' ', ' ',
@@ -335,32 +334,48 @@ def export_xlsx(modeladmin, request, queryset):
 export_xlsx.short_description = u"Export XLSX"
 
 
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = [ 'user',
+                     # 'first_name',
+                     'user_filial_id',
+                     'user_otdel_id',
+    ]
+
+
+class ReasonAdmin(admin.ModelAdmin):
+    list_display = [ 'id',
+                     'rc_name',
+                     'otdel_id_id',
+    ]
+
 class CallAdmin(admin.ModelAdmin):
     actions = [export_xls, export_xlsx]
     list_filter = ['call_entite',
-                   'call_date',
+                   'call_date_start',# DateFieldListFilter,
+                   'call_aim',
+                   'call_document',
                    'call_user_man',
                    'call_user_man_filial',
                    'call_user_man_otdel',
                    ]
     list_display = ['id',
                     'call_title',
+                    'call_aim',
+                    'call_aim_detail',
+                    'call_document',
+                    'call_kontact',
                     'call_otvet',
-                    'call_date',
+                    'call_date_start',
+                    'call_user_man',
                     ]
     # list_editable = ['id']
 inlines = (AttachmentInlines,)
 admin.site.register(Call, CallAdmin)
-admin.site.register(Profile)
+admin.site.register(Profile, ProfileAdmin)
 admin.site.register(Filial)
 admin.site.register(legalEntity)
-admin.site.register(Aim_call)
-admin.site.register(reason_call_operator_dispetcher)
-admin.site.register(reason_call_operator_CPES)
-admin.site.register(reason_call_operator_PTO)
-admin.site.register(reason_call_operator_CA)
-admin.site.register(reason_call_operator_secretar)
-
+admin.site.register(reason_otdel, ReasonAdmin)
 admin.site.register(Res)
 admin.site.register(Otdel)
 admin.site.register(ActOperator)
+

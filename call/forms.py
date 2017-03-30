@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from django import forms
-from django.conf import settings
-from django import utils
-from django.forms.fields import DateField, ChoiceField, MultipleChoiceField
-from django.forms.widgets import RadioSelect, CheckboxSelectMultiple
-from django.forms.extras.widgets import SelectDateWidget
+# from django.conf import settings
+# from django import utils
+# from django.forms.fields import DateField, ChoiceField, MultipleChoiceField
+# from django.forms.widgets import RadioSelect, CheckboxSelectMultiple
+# from django.forms.extras.widgets import SelectDateWidget
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
@@ -56,11 +56,29 @@ from django.contrib import auth
 #             'call_title',
 #             'call_aim',
 #             'call_otvet',
-#             'call_date',
+#             'call_date_start',
 #             # 'call_user',
 #             'call_user_man',
 #         )
 ########################################
+
+# def useriswho(self):
+#     select_items_aim = None
+#     if Profile.user_otdel == "Диспетчерская":
+#         select_items_aim =
+#     elif Profile.user_otdel == "ЦПЭС":
+#         select_items_aim = Call.models.ForeignKey(reason_call_operator_CPES, verbose_name='Цель звонка:',
+#                                              default=id(1), blank=True, null=True)
+#     elif Profile.user_otdel == "ПТО":
+#         select_items_aim = models.ForeignKey(reason_call_operator_PTO, verbose_name='Цель звонка:',
+#                                              default=id(1), blank=True, null=True)
+#     elif Profile.user_otdel == "Канцелярия ЦА":
+#         select_items_aim = models.ForeignKey(reason_call_operator_CA, verbose_name='Цель звонка:',
+#                                              default=id(1), blank=True, null=True)
+#     elif Profile.user_otdel == "Секретариат":
+#         select_items_aim = models.ForeignKey(reason_call_operator_secretar, verbose_name='Цель звонка:',
+#                                              default=id(1), blank=True, null=True)
+#     return select_items_aim
 
 class NewCallForm(forms.ModelForm):
     class Meta:
@@ -73,7 +91,7 @@ class NewCallForm(forms.ModelForm):
                   'call_otvet',
                   'call_document',
                   'call_kontact',
-                  'call_date',
+                  "call_date_start",
                   'call_user_man',
                   'call_act',
                   'call_user_man_filial',
@@ -94,7 +112,7 @@ class NewCallForm(forms.ModelForm):
         Field('call_kontact', placeholder='Контакты для связи: +7 (XXX) XXX XX XX'),
         Field('call_document'),
         Field('call_act'),
-        Field('call_date', readonly=True, style='display: none;'),
+        Field('call_date_start', readonly=True, style='display: none;'),
         Field('call_user_man', readonly=True, style='display: none;'),
         Field('call_user_man_filial', readonly=True, style='display: none;'),
         Field('call_user_man_otdel', readonly=True, style='display: none;'),
@@ -110,7 +128,7 @@ class NewCallForm(forms.ModelForm):
         # self.fields['call_title'].required = True
 
         self.fields['call_kontact'].label = ''
-        self.fields['call_date'].label = ''
+        self.fields['call_date_start'].label = ''
         self.fields['call_user_man'].label = ''
         self.fields['call_user_man_filial'].label = ''
         self.fields['call_user_man_otdel'].label = ''
@@ -187,7 +205,8 @@ class EditCallForm(forms.ModelForm):
             'call_otvet',
             'call_document',
             'call_kontact',
-            'call_date',
+            'call_date_start',
+            'call_date_end',
             'call_user_man',
             'call_act',
             'call_user_man_filial',
@@ -207,11 +226,12 @@ class EditCallForm(forms.ModelForm):
         Field('call_title', placeholder='ФИО Абонента/Название организации', readonly=True),
         # Field('call_aim', readonly=True),
         Field('call_aim_detail', readonly=True),
-        Field('call_otvet', initial=False),
+        Field('call_date_end', css_class='datepicker'),
+        Field('call_otvet'),
         Field('call_kontact', placeholder='Контакты для связи: +7 (XXX) XXX XX XX'),
         Field('call_document'),
         Field('call_act'),
-        Field('call_date', readonly=True, style='display: none;'),
+        Field('call_date_start', readonly=True, style='display: none;'),
         Field('call_user_man', readonly=True, style='display: none;'),
         Field('call_user_man_filial', readonly=True, style='display: none;'),
         Field('call_user_man_otdel', readonly=True, style='display: none;'),
@@ -230,7 +250,7 @@ class EditCallForm(forms.ModelForm):
         ###
         # self.fields['call_entite'].widget.attrs['readonly'] = True
         self.fields['call_kontact'].label = ''
-        self.fields['call_date'].label = ''
+        self.fields['call_date_start'].label = ''
         self.fields['call_user_man'].label = ''
         self.fields['call_user_man_filial'].label = ''
         self.fields['call_user_man_otdel'].label = ''

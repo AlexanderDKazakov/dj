@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.shortcuts import redirect
-from call.models import Call, User
+from call.models import Call, User, reason_otdel
 from django.contrib import auth
 from django.shortcuts import get_object_or_404
 ### For form
@@ -41,7 +41,7 @@ def list_call(request):
         args['top_message'] = 'Список звонков, по которым необходимо сформировать ответ:'
         args['time_now'] = datetime.datetime.now()
         args['call_for_filial'] = Call.objects.filter(call_user_man_filial=args['user_filial']).filter(
-            call_otvet=True).filter(call_user_man_otdel=args['user_otdel']).order_by('-call_date')
+            call_otvet=True).filter(call_user_man_otdel=args['user_otdel']).order_by('-call_date_start')
         return render(request, 'list_call.html', {'args': args})
 
 
@@ -98,6 +98,8 @@ def new_call(request):
                                     'call_user_man_filial': args['user_filial'],
                                     'call_user_man_otdel': args['user_otdel'],
                                     })
+    if args['user_otdel'] != None:
+        form.fields['call_aim'].queryset = user.profile.user_otdel.reason_otdel_set
     return render(request, 'new_call.html', {'form': form, 'args': args})
 
 
