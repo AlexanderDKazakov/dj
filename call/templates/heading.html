@@ -1,4 +1,5 @@
 {% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,6 +55,15 @@
             <td bgcolor="#ff9400"></td>
         </tr>
     </table>
+    {# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
     {% block content %}{% endblock %}
     {% block login %}{% endblock %}
 </body>

@@ -1,5 +1,5 @@
 //INITIAL CONDITIONS
-PopUpHide();
+// PopUpHide();
 //
 // $(document).on('submit','#myform_requst1',function (e) {
 //            e.preventDefault();

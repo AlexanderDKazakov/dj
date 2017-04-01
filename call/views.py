@@ -42,7 +42,7 @@ def list_call(request):
         args['top_message'] = 'Список звонков, по которым необходимо сформировать ответ:'
         args['time_now'] = datetime.datetime.now()
         args['call_for_filial'] = Call.objects.filter(call_user_man_filial=args['user_filial']).filter(
-            call_otvet=True).filter(call_user_man_otdel=args['user_otdel']).order_by('-call_date_start_start')
+            call_otvet=True).filter(call_user_man_otdel=args['user_otdel']).order_by('-call_date_start')
         return render(request, 'list_call.html', {'args': args})
 
 
