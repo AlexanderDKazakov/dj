@@ -68,11 +68,13 @@ function PopUpHide(){
     var dateFormat = "dd/mm/yy",
       from = $( "#from" )
         .datepicker({
+            // regional: "ru" ,
           defaultDate: "+1w",
           changeMonth: true,
           numberOfMonths: 1,
           dateFormat: "dd/mm/yy"
         })
+
         .on( "change", function() {
           to.datepicker( "option", "minDate", getDate( this ) );
         }),
@@ -85,15 +87,15 @@ function PopUpHide(){
       .on( "change", function() {
         from.datepicker( "option", "maxDate", getDate( this ) );
       });
-      to = $( "#id_call_date_end" ).datepicker({
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 1,
-        dateFormat: "dd.mm.yy"
-      })
-      .on( "change", function() {
-        from.datepicker( "option", "maxDate", getDate( this ) );
-      });
+      // to = $( "#id_call_date_end" ).datepicker({
+      //   defaultDate: "+1w",
+      //   changeMonth: true,
+      //   numberOfMonths: 1,
+      //   dateFormat: "dd.mm.yy"
+      // })
+      // .on( "change", function() {
+      //   from.datepicker( "option", "maxDate", getDate( this ) );
+      // });
 
     function getDate( element ) {
       var date;
@@ -109,10 +111,51 @@ function PopUpHide(){
 // END DATAPICKER
 // START DATATIMEPICKER
 // $( function() {
-//     to = $('#id_call_date_end').datetimepicker({
-// 	timeFormat: "hh:mm tt"
-// });
-// }
+//     var dateFormat = "dd/mm/yy",
+//       from = $( "#from" )
+//         .datetimepicker({
+//           // regional: "ru" ,
+//           defaultDate: "+1w",
+//           changeMonth: true,
+//           numberOfMonths: 1,
+//             // regional['ru'],
+//           dateFormat: "dd/mm/yy"
+//         })
+//
+//         .on( "change", function() {
+//           to.datetimepicker( "option", "minDate", getDate( this ) );
+//         }),
+//       to = $( "#to" ).datetimepicker({
+//         defaultDate: "+1w",
+//         changeMonth: true,
+//         numberOfMonths: 1,
+//         dateFormat: "dd/mm/yy"
+//       })
+//       .on( "change", function() {
+//         from.datetimepicker( "option", "maxDate", getDate( this ) );
+//       });
+//       to = $( "#id_call_date_end" ).datetimepicker({
+//         defaultDate: "+1w",
+//         changeMonth: true,
+//         numberOfMonths: 1,
+//         dateFormat: "dd.mm.yy"
+//       })
+//       .on( "change", function() {
+//         from.datetimepicker( "option", "maxDate", getDate( this ) );
+//       });
+//
+//     function getDate( element ) {
+//       var date;
+//       try {
+//         date = $.datepicker.parseDate( dateFormat, element.value );
+//       } catch( error ) {
+//         date = null;
+//       }
+//
+//       return date;
+//     }
+//   } );
+
 // END DATATIMEPICKER
 // COLOR THE TABLE DEPENDING ON DATE
 //     $(function () {

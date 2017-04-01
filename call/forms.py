@@ -7,7 +7,7 @@ from django import forms
 # from django.forms.extras.widgets import SelectDateWidget
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
+from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field, Fieldset
 from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
 
 from call.models import Call
@@ -79,6 +79,8 @@ from django.contrib import auth
 #         select_items_aim = models.ForeignKey(reason_call_operator_secretar, verbose_name='Цель звонка:',
 #                                              default=id(1), blank=True, null=True)
 #     return select_items_aim
+from datetimewidget.widgets import DateTimeWidget
+from datetimewidget.widgets import DateWidget# DateTimeWidget, TimeWidget
 
 class NewCallForm(forms.ModelForm):
     class Meta:
@@ -107,7 +109,7 @@ class NewCallForm(forms.ModelForm):
         Field('call_entite', required=True),
         Field('call_title', placeholder='ФИО Абонента/Название организации', required=True),
         Field('call_aim'),
-        Field('call_aim_detail', placeholder='Опишите кратко детали' , required=True),
+        Field('call_aim_detail', placeholder='Опишите кратко детали', required=True),
         Field('call_otvet', initial=False),
         Field('call_kontact', placeholder='Контакты для связи: +7 (XXX) XXX XX XX'),
         Field('call_document'),
@@ -196,7 +198,10 @@ class NewCallForm(forms.ModelForm):
 class EditCallForm(forms.ModelForm):
     class Meta:
         model = Call
-
+        widgets = {
+            # Use localization and bootstrap 3
+            'call_date_end': DateTimeWidget(attrs={'id': "id_call_date_end"}, usel10n=True)
+        }
         fields = [
             'call_title',
             # 'call_entite',
@@ -226,7 +231,7 @@ class EditCallForm(forms.ModelForm):
         Field('call_title', placeholder='ФИО Абонента/Название организации', readonly=True),
         # Field('call_aim', readonly=True),
         Field('call_aim_detail', readonly=True),
-        Field('call_date_end', css_class='datepicker'),
+        Field('call_date_end'),
         Field('call_otvet'),
         Field('call_kontact', placeholder='Контакты для связи: +7 (XXX) XXX XX XX'),
         Field('call_document'),
@@ -243,6 +248,7 @@ class EditCallForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(EditCallForm, self).__init__(*args, **kwargs)
 
+        # self.fields['call_entite'].disable
         # self.fields['call_entite'].widget = forms.CheckboxInput(attrs={'readonly': True})
         ###
         # self.fields['call_aim'] = forms.ChoiceField(widget=forms.Select(attrs={'disabled': 'disabled'}))
@@ -258,3 +264,26 @@ class EditCallForm(forms.ModelForm):
 
 
         # self.fields['call_kontact'].style = 'display : none;'
+
+
+class datepicker(forms.Form):
+    date_from = forms.DateField(widget=DateWidget(usel10n=True))
+    date_to = forms.DateField(widget=DateWidget(usel10n=True))
+
+
+    helper = FormHelper()
+    helper.field_class = 'col-sm-6'
+    # helper.label_class = 'label label-warning'  # this css class attribute will be added to all of the labels in your form. For instance, the "Username: " label will have 'col-md-3'
+    helper.field_class = 'form-group'  # this css class attribute will be added to all of the input fields in your form. For isntance, the input text box for "Username" will have 'col-md-9'
+    helper.form_method = 'post'
+    helper.form_action = 'export_excel_out/'
+    helper.add_input(Submit('submit', 'Подготовить отчёт', css_class='btn btn-success btn-lg '))
+
+
+
+    def __init__(self, *args, **kwargs):
+        super(datepicker, self).__init__(*args, **kwargs)
+
+        self.fields['date_from'].label = 'С'
+        self.fields['date_to'].label = 'ПО'
+

@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
             name='ActOperator',
             fields=[
                 ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('actoperator_name', models.CharField(max_length=200, null=True, blank=True, verbose_name='Действия оператора')),
+                ('actoperator_name', models.CharField(max_length=200, verbose_name='Действия оператора', blank=True, null=True)),
             ],
             options={
                 'db_table': 'actoperator',
@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
             name='Aim_call',
             fields=[
                 ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('ac_name', models.CharField(max_length=200, null=True, blank=True, verbose_name='Цель звонка')),
+                ('ac_name', models.CharField(max_length=200, verbose_name='Цель звонка', blank=True, null=True)),
             ],
             options={
                 'db_table': 'aim_call',
@@ -37,27 +37,28 @@ class Migration(migrations.Migration):
             name='Call',
             fields=[
                 ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('call_title', models.CharField(max_length=200, verbose_name='ФИО абонента:')),
-                ('call_document', models.FileField(null=True, blank=True, verbose_name='Приложить документ:', upload_to='documents/%Y/%m/%d/')),
+                ('call_title', models.CharField(max_length=200, verbose_name='Заявитель:')),
+                ('call_document', models.FileField(verbose_name='Приложить документ:', blank=True, null=True, upload_to='documents/%Y/%m/%d/')),
                 ('call_otvet', models.BooleanField(default=False, verbose_name='Необходимо подготовить ответ:')),
-                ('call_aim_detail', models.CharField(max_length=300, null=True, blank=True, verbose_name='Детали звонка:')),
-                ('call_kontact', models.CharField(max_length=150, null=True, blank=True, verbose_name='Контакты для связи:')),
-                ('call_date_start', models.DateTimeField(default=django.utils.timezone.now, verbose_name='Время звонка:')),
-                ('call_user_man', models.CharField(max_length=50, null=True, blank=True, verbose_name='Логин оператора:')),
-                ('call_user_man_filial', models.CharField(max_length=100, null=True, blank=True, verbose_name='Филиал оператора:')),
-                ('call_user_man_otdel', models.CharField(max_length=100, null=True, blank=True, verbose_name='Отдел оператора')),
-                ('call_act', models.ForeignKey(default=10914368, verbose_name='Действие оператора:', to='call.ActOperator')),
+                ('call_aim_detail', models.CharField(max_length=300, verbose_name='Детали звонка:', blank=True, null=True)),
+                ('call_kontact', models.CharField(max_length=150, verbose_name='Контакты для связи:', blank=True, null=True)),
+                ('call_date_start', models.DateTimeField(default=django.utils.timezone.now, verbose_name='Время открытия звонка:')),
+                ('call_date_end', models.DateTimeField(verbose_name='Время закрытия звонка:', blank=True, null=True)),
+                ('call_user_man', models.CharField(max_length=50, verbose_name='Логин оператора:', blank=True, null=True)),
+                ('call_user_man_filial', models.CharField(max_length=100, verbose_name='Филиал оператора:', blank=True, null=True)),
+                ('call_user_man_otdel', models.CharField(max_length=100, verbose_name='Отдел оператора', blank=True, null=True)),
+                ('call_act', models.ForeignKey(to='call.ActOperator', default=10914368, verbose_name='Действие оператора:')),
             ],
             options={
-                'ordering': ['-call_date_start'],
                 'db_table': 'call',
+                'ordering': ['-call_date_start'],
             },
         ),
         migrations.CreateModel(
             name='Filial',
             fields=[
                 ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('filial_name', models.CharField(max_length=200, null=True, blank=True, verbose_name='Филиал')),
+                ('filial_name', models.CharField(max_length=200, verbose_name='Филиал', blank=True, null=True)),
             ],
             options={
                 'db_table': 'filial',
@@ -67,7 +68,7 @@ class Migration(migrations.Migration):
             name='legalEntity',
             fields=[
                 ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('le_type', models.CharField(max_length=200, null=True, blank=True, verbose_name='Тип лица (Физический/Юридический)')),
+                ('le_type', models.CharField(max_length=200, verbose_name='Тип лица (Физический/Юридический)', blank=True, null=True)),
             ],
             options={
                 'db_table': 'abonent',
@@ -77,7 +78,7 @@ class Migration(migrations.Migration):
             name='Otdel',
             fields=[
                 ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('otdel_name', models.CharField(max_length=200, null=True, blank=True, verbose_name='Отдел')),
+                ('otdel_name', models.CharField(max_length=200, verbose_name='Отдел', blank=True, null=True)),
             ],
             options={
                 'db_table': 'otdel',
@@ -90,65 +91,15 @@ class Migration(migrations.Migration):
                 ('user_otchestvo', models.CharField(max_length=20, verbose_name='Отчество')),
                 ('user_numphone', models.CharField(max_length=20, verbose_name='Номер телефона')),
                 ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
-                ('user_filial', models.ForeignKey(null=True, blank=True, verbose_name='Филиал', to='call.Filial')),
-                ('user_otdel', models.ForeignKey(null=True, blank=True, verbose_name='Отдел', to='call.Otdel')),
+                ('user_filial', models.ForeignKey(to='call.Filial', null=True, blank=True, verbose_name='Филиал')),
+                ('user_otdel', models.ForeignKey(to='call.Otdel', null=True, blank=True, verbose_name='Отдел')),
             ],
-        ),
-        migrations.CreateModel(
-            name='reason_call_operator_CA',
-            fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('rc_name', models.CharField(max_length=200, null=True, blank=True, verbose_name='Причина обращения:')),
-            ],
-            options={
-                'db_table': 'reason_call_operator_CA',
-            },
-        ),
-        migrations.CreateModel(
-            name='reason_call_operator_CPES',
-            fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('rc_name', models.CharField(max_length=200, null=True, blank=True, verbose_name='Причина обращения:')),
-            ],
-            options={
-                'db_table': 'reason_call_operator_CPES',
-            },
-        ),
-        migrations.CreateModel(
-            name='reason_call_operator_dispetcher',
-            fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('rc_name', models.CharField(max_length=200, null=True, blank=True, verbose_name='Причина обращения:')),
-            ],
-            options={
-                'db_table': 'reason_call_operator_dispetcher',
-            },
-        ),
-        migrations.CreateModel(
-            name='reason_call_operator_PTO',
-            fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('rc_name', models.CharField(max_length=200, null=True, blank=True, verbose_name='Причина обращения:')),
-            ],
-            options={
-                'db_table': 'reason_call_operator_PTO',
-            },
-        ),
-        migrations.CreateModel(
-            name='reason_call_operator_secretar',
-            fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('rc_name', models.CharField(max_length=200, null=True, blank=True, verbose_name='Причина обращения:')),
-            ],
-            options={
-                'db_table': 'reason_call_operator_secretar',
-            },
         ),
         migrations.CreateModel(
             name='reason_otdel',
             fields=[
                 ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('rc_name', models.CharField(max_length=200, null=True, blank=True, verbose_name='Причина обращения:')),
+                ('rc_name', models.CharField(max_length=200, verbose_name='Причина обращения:', blank=True, null=True)),
                 ('otdel_id', models.ForeignKey(to='call.Otdel')),
             ],
             options={
@@ -159,7 +110,7 @@ class Migration(migrations.Migration):
             name='Res',
             fields=[
                 ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
-                ('res_name', models.CharField(max_length=200, null=True, blank=True, verbose_name='РЭС')),
+                ('res_name', models.CharField(max_length=200, verbose_name='РЭС', blank=True, null=True)),
             ],
             options={
                 'db_table': 'res',
@@ -168,16 +119,16 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='profile',
             name='user_res',
-            field=models.ForeignKey(null=True, blank=True, verbose_name='РЭС', to='call.Res'),
+            field=models.ForeignKey(to='call.Res', null=True, blank=True, verbose_name='РЭС'),
         ),
         migrations.AddField(
             model_name='call',
             name='call_aim',
-            field=models.ForeignKey(default=10914368, null=True, blank=True, verbose_name='Цель звонка:', to='call.reason_call_operator_dispetcher'),
+            field=models.ForeignKey(to='call.reason_otdel', null=True, blank=True, default=10914368, verbose_name='Причина обращения:'),
         ),
         migrations.AddField(
             model_name='call',
             name='call_entite',
-            field=models.ForeignKey(default=10914368, blank=True, verbose_name='Лицо:', to='call.legalEntity'),
+            field=models.ForeignKey(to='call.legalEntity', blank=True, default=10914368, verbose_name='Лицо:'),
         ),
     ]

@@ -5,7 +5,7 @@ from call.models import Call, User, reason_otdel
 from django.contrib import auth
 from django.shortcuts import get_object_or_404
 ### For form
-from .forms import NewCallForm, EditCallForm
+from .forms import NewCallForm, EditCallForm, datepicker
 ######## EXPORTING
 from django.http import HttpResponse
 import datetime
@@ -30,7 +30,8 @@ def list_call(request):
         args['top_message'] = 'Список всех звонков:'
         args['time_now'] = datetime.datetime.now()
         args['call_for_filial'] = Call.objects.filter(call_user_man_filial=args['user_filial'])
-        return render(request, 'list_call.html', {'args': args})
+        form = datepicker()
+        return render(request, 'list_call.html', {'args': args, 'form': form})
     else:
         user_id = args['id']
         user = User.objects.get(pk=user_id)
@@ -41,8 +42,9 @@ def list_call(request):
         args['top_message'] = 'Список звонков, по которым необходимо сформировать ответ:'
         args['time_now'] = datetime.datetime.now()
         args['call_for_filial'] = Call.objects.filter(call_user_man_filial=args['user_filial']).filter(
-            call_otvet=True).filter(call_user_man_otdel=args['user_otdel']).order_by('-call_date_start')
+            call_otvet=True).filter(call_user_man_otdel=args['user_otdel']).order_by('-call_date_start_start')
         return render(request, 'list_call.html', {'args': args})
+
 
 
 def call_edit(request, call_id=1):
@@ -213,8 +215,8 @@ def export_xls(request):
         row = [
             count_number,
             row_list[1],
-            str(obj.call_date)[:10],
-            str(obj.call_date)[11:19],
+            str(obj.call_date_start)[:10],
+            str(obj.call_date_start)[11:19],
             '',
             '1',
         ]
@@ -351,9 +353,9 @@ def export_excel_out(request):
         data_to_comparible=datetime.date(year_t, month_t, day_t)
         # data_to_comparible=datetime.date(data_to[6:], data_to[:2], data_to[3:5])
         for obj in queryset:
-            day_c = int(str(obj.call_date)[8:10])
-            month_c = int(str(obj.call_date)[5:7])
-            year_c = int(str(obj.call_date)[:4])
+            day_c = int(str(obj.call_date_start)[8:10])
+            month_c = int(str(obj.call_date_start)[5:7])
+            year_c = int(str(obj.call_date_start)[:4])
             data_current = datetime.date(year_c, month_c, day_c)
             if (data_current <= data_to_comparible) and (data_current >= data_from_comparible):
                 row_num += 1
@@ -361,8 +363,8 @@ def export_excel_out(request):
                 row = [
                     count_number,
                     row_list[1],
-                    str(obj.call_date)[8:10]+'/'+str(obj.call_date)[5:7]+'/'+str(obj.call_date)[:4], # dd/mm/yyyy
-                    str(obj.call_date)[11:19],
+                    str(obj.call_date_start)[8:10]+'/'+str(obj.call_date_start)[5:7]+'/'+str(obj.call_date_start)[:4], # dd/mm/yyyy
+                    str(obj.call_date_start)[11:19],
                     '',
                     '1',
                 ]
@@ -370,22 +372,11 @@ def export_excel_out(request):
                     ws.write(row_num, col_num, row[col_num], font_style)
                 ws.write(row_num, 9 + list_aim_call.index(str(obj.call_aim)), '1')
                 ws.write(row_num, 26, '1')  # call answer get at the time
-
         # ws.write(30,1, data_from)
         # ws.write(31,1, int(data_from[:2])) # dd
         # ws.write(32,1, int(data_from[3:5])) # mm
         # ws.write(33, 1, int(data_from[6:]))  # yyyy
         # ws.write(30,2, data_to)
         # ws.write(30,3, inp_otdel)
-
         wb.save(response)
         return response
-
-        # return redirect('www.google.ru')
-
-    # if request.is_ajax():
-    #
-    #     message = "<html><body>It is now %s.</body></html>" % now
-    # else:
-    #     message = "Hello"
-    # return HttpResponse(message)

@@ -56,6 +56,8 @@ INSTALLED_APPS = (
     'loginsys',
     'jquery',
     'attachments',
+    'bootstrap3',
+    'datetimewidget',
 )
 
 

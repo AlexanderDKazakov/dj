@@ -1,5 +1,14 @@
 {% extends 'heading.html' %}
 {% load crispy_forms_tags %}
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
 {% block content %}
     <h3 class="title">Редактирование звонка</h3>
     <form method="post" action="" class="form_add_edit" enctype="multipart/form-data">
