@@ -113,9 +113,11 @@ class Call(models.Model):
     call_date_start = models.DateTimeField(default=timezone.now, verbose_name='Время открытия звонка:')
     call_date_end   = models.DateTimeField(verbose_name='Время закрытия звонка:', blank=True, null=True)
     #### INSERTING DATA FROM FORM(INITIAL)
-    call_user_man = models.CharField(max_length=50, verbose_name='Логин оператора:', blank=True, null=True)
-    call_user_man_filial = models.CharField(max_length=100, verbose_name='Филиал оператора:', blank=True, null=True)
-    call_user_man_otdel = models.CharField(max_length=100, verbose_name='Отдел оператора', blank=True, null=True)
+    call_user_man        = models.CharField(max_length=50, verbose_name='Логин оператора:', blank=True, null=True)
+    # call_user_man_filial = models.CharField(max_length=100, verbose_name='Филиал оператора:', blank=True, null=True)
+    call_user_man_filial = models.ForeignKey(Filial, verbose_name='Филиал оператора:', blank=True, null=True)
+    # call_user_man_otdel  = models.CharField(max_length=100, verbose_name='Отдел оператора', blank=True, null=True)
+    call_user_man_otdel  = models.ForeignKey(Otdel, verbose_name='Отдел оператора', blank=True, null=True)
 
     def calliswhat(self):
         now = timezone.now()
