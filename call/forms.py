@@ -11,6 +11,7 @@ from django.contrib import auth
 from datetimewidget.widgets import DateTimeWidget
 from datetimewidget.widgets import DateWidget# DateTimeWidget, TimeWidget
 
+
 class NewCallForm(forms.ModelForm):
     class Meta:
         model = Call
@@ -68,6 +69,7 @@ class NewCallForm(forms.ModelForm):
 
         # self.fields['call_kontact'].style = 'display : none;'
 
+
 class EditCallForm(forms.ModelForm):
     class Meta:
         model = Call
@@ -114,20 +116,13 @@ class EditCallForm(forms.ModelForm):
         Field('call_user_man_filial', readonly=True, style='display: none;'),
         Field('call_user_man_otdel', readonly=True, style='display: none;'),
         FormActions(
-            Submit('submit', 'Cохранить', css_class='btn btn-success btn-lg'),
+            Submit('submit', 'Cохранить изменения', css_class='btn btn-success btn-lg'),
             Button('cancel', 'Назад', css_class='btn btn-default btn-lg', onclick='history.go(-1);')
         )
     )
     def __init__(self, *args, **kwargs):
         super(EditCallForm, self).__init__(*args, **kwargs)
 
-        # self.fields['call_entite'].disable
-        # self.fields['call_entite'].widget = forms.CheckboxInput(attrs={'readonly': True})
-        ###
-        # self.fields['call_aim'] = forms.ChoiceField(widget=forms.Select(attrs={'disabled': 'disabled'}))
-        # self.fields['call_aim'].label = 'Цель звонка:'
-        ###
-        # self.fields['call_entite'].widget.attrs['readonly'] = True
         self.fields['call_kontact'].label = ''
         self.fields['call_date_start'].label = ''
         self.fields['call_user_man'].label = ''
@@ -136,7 +131,29 @@ class EditCallForm(forms.ModelForm):
         self.fields['call_otvet'].label = 'Необходимо подготовить ответ'
 
 
-        # self.fields['call_kontact'].style = 'display : none;'
+class CommentCallForm(forms.ModelForm):
+    class Meta:
+        model = Call
+        fields = [
+            'call_comment',
+            ]
+
+    # Uni-form
+    helper = FormHelper()
+    # helper.label_class = 'label label-warning'  # this css class attribute will be added to all of the labels in your form. For instance, the "Username: " label will have 'col-md-3'
+    helper.field_class = 'form-group'  # this css class attribute will be added to all of the input fields in your form. For isntance, the input text box for "Username" will have 'col-md-9'
+    helper.form_method = 'post'
+    helper.layout = Layout(
+        Field('call_comment', placeholder='Введите комментарии'),
+
+        FormActions(
+            Submit('submit', 'Добавить комментарий', css_class='btn btn-success btn-sm'),
+        )
+    )
+    def __init__(self, *args, **kwargs):
+        super(CommentCallForm, self).__init__(*args, **kwargs)
+
+        self.fields['call_comment'].label = ''
 
 
 class DatePickerForm(forms.Form):

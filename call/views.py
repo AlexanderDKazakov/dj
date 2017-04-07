@@ -5,7 +5,7 @@ from call.models import Call, User, reason_otdel
 from django.contrib import auth
 from django.shortcuts import get_object_or_404
 ### For form
-from .forms import NewCallForm, EditCallForm, DatePickerForm, RedirectCallForm
+from .forms import NewCallForm, EditCallForm, DatePickerForm, RedirectCallForm, CommentCallForm
 ######## EXPORTING
 from django.http import HttpResponse
 import datetime
@@ -59,18 +59,28 @@ def call_edit(request, call_id=1):
     args['user_otdel'] = user.profile.user_otdel
     args['user_res'] = user.profile.user_res
     args['user_group'] = request.user.groups.values_list('name', flat=True).first()
-    args['title_button'] = 'Сохранить изменения'
+    # TODO comment output
+    # args['call_'] = Call.objects.all()
+
+    # args['title_button'] = 'Сохранить изменения'
+    form_comment = CommentCallForm()
     # HEADING
     call = get_object_or_404(Call, pk=call_id)
     if request.method == "POST":
         form = EditCallForm(request.POST, request.FILES, instance=call)
+        form_comment = CommentCallForm(request.POST, instance=call)
         if form.is_valid():
             call = form.save(commit=False)
             call.save()
             return redirect('/')
+        elif form_comment.is_valid():
+            call_comment = form_comment.save(commit=False)
+            call_comment.save()
+            return redirect('/')
     else:
         form = EditCallForm(instance=call)
-    return render(request, 'call_edit.html', {'form': form, 'args': args})
+        # form_comment = CommentCallForm(instance=call)
+    return render(request, 'call_edit.html', {'form': form, 'form_comment' : form_comment, 'args': args})
 
 
 def new_call(request):

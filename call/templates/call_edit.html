@@ -49,4 +49,17 @@
     <form method="post" action="" class="form_add_edit" enctype="multipart/form-data">
         {% crispy form  %}
     </form>
+
+    <table>
+{#        {% for comments in args.call_comments_data %}#}
+        <tr>
+            <td>
+                Здесь будут комментарии.
+            </td>
+        </tr>
+    </table>
+
+    <form method="post" action="" class="form_add_edit">
+        {% crispy form_comment %}
+    </form>
 {% endblock %}

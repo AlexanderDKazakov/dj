@@ -112,6 +112,7 @@ class Call(models.Model):
     call_kontact    = models.CharField(max_length=150, verbose_name='Контакты для связи:', blank=True, null=True)
     call_date_start = models.DateTimeField(default=timezone.now, verbose_name='Время открытия звонка:')
     call_date_end   = models.DateTimeField(verbose_name='Время закрытия звонка:', blank=True, null=True)
+    call_comment    = models.CharField(max_length=500, verbose_name='Комментарий:', blank=True, null=True)
     #### INSERTING DATA FROM FORM(INITIAL)
     call_user_man        = models.CharField(max_length=50, verbose_name='Логин оператора:', blank=True, null=True)
     # call_user_man_filial = models.CharField(max_length=100, verbose_name='Филиал оператора:', blank=True, null=True)
