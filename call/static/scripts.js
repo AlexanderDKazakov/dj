@@ -1,5 +1,5 @@
 // HIDE/SHOW FIELD FOR CONTACT INFORMATION
-var $input = $("#div_id_call_otvet");
+var $input = $("#id_call_otvet");
     if ($input.prop('checked')){
         $("#id_call_kontact").css({'display': 'inline-block'});
     }

@@ -5,7 +5,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field, Fieldset
 from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
 
-from call.models import Call, Otdel
+from call.models import Call, Otdel, Comment
 from django.contrib import auth
 
 from datetimewidget.widgets import DateTimeWidget
@@ -73,14 +73,10 @@ class NewCallForm(forms.ModelForm):
 class EditCallForm(forms.ModelForm):
     class Meta:
         model = Call
-        widgets = {
-            # Use localization and bootstrap 3
-            'call_date_end': DateTimeWidget(attrs={'id': "id_call_date_end"}, usel10n=True)
-        }
         fields = [
             'call_title',
             # 'call_entite',
-            # 'call_aim',
+            'call_aim',
             'call_aim_detail',
             'call_otvet',
             'call_document',
@@ -93,6 +89,11 @@ class EditCallForm(forms.ModelForm):
             'call_user_man_otdel',
             ]
 
+        widgets = {
+        # Use localization and bootstrap 3
+        'call_date_end': DateTimeWidget(attrs={'id': "id_call_date_end"}, usel10n=True)
+        }
+
     # Uni-form
 
     helper = FormHelper()
@@ -104,7 +105,7 @@ class EditCallForm(forms.ModelForm):
     helper.layout = Layout(
         # Field('call_entite', readonly=True),
         Field('call_title', placeholder='ФИО Абонента/Название организации', readonly=True),
-        # Field('call_aim', readonly=True),
+        Field('call_aim'),
         Field('call_aim_detail', readonly=True),
         Field('call_date_end'),
         Field('call_otvet'),
@@ -133,9 +134,9 @@ class EditCallForm(forms.ModelForm):
 
 class CommentCallForm(forms.ModelForm):
     class Meta:
-        model = Call
+        model = Comment
         fields = [
-            'call_comment',
+            'comment_text',
             ]
 
     # Uni-form
@@ -144,16 +145,17 @@ class CommentCallForm(forms.ModelForm):
     helper.field_class = 'form-group'  # this css class attribute will be added to all of the input fields in your form. For isntance, the input text box for "Username" will have 'col-md-9'
     helper.form_method = 'post'
     helper.layout = Layout(
-        Field('call_comment', placeholder='Введите комментарии'),
+        Field('comment_text', placeholder='Введите комментарии'),
+        # Field('comment_user', readonly=True, style='display: none;'),
 
         FormActions(
-            Submit('submit', 'Добавить комментарий', css_class='btn btn-success btn-sm'),
+            Submit('submit', 'Добавить комментарий', css_class='btn btn-info btn-md'),
         )
     )
     def __init__(self, *args, **kwargs):
         super(CommentCallForm, self).__init__(*args, **kwargs)
 
-        self.fields['call_comment'].label = ''
+        # self.fields['comment_text'].label = ''
 
 
 class DatePickerForm(forms.Form):

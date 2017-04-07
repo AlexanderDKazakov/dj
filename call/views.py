@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.shortcuts import redirect
-from call.models import Call, User, reason_otdel
+from call.models import Call, User, reason_otdel, Comment
 from django.contrib import auth
 from django.shortcuts import get_object_or_404
 ### For form
@@ -50,10 +50,11 @@ def list_call(request):
 def call_edit(request, call_id=1):
     args = {}
     args['title_page'] = 'ЛОЭСК | Редактирование звонка'
-    args['id'] = auth.get_user(request).id
-    user_id = args['id']
-    user = User.objects.get(pk=user_id)
+    # args['id'] = auth.get_user(request).id
+    # user_id = args['id']
+    user = User.objects.get(pk=auth.get_user(request).id)
     args['call_edit'] = Call.objects.get(id=call_id)
+    args['call_comments'] = Comment.objects.filter(comment_call_id=call_id)
     args['username'] = auth.get_user(request)
     args['user_filial'] = user.profile.user_filial
     args['user_otdel'] = user.profile.user_otdel
@@ -68,27 +69,79 @@ def call_edit(request, call_id=1):
     call = get_object_or_404(Call, pk=call_id)
     if request.method == "POST":
         form = EditCallForm(request.POST, request.FILES, instance=call)
-        form_comment = CommentCallForm(request.POST, instance=call)
+        form_comment = CommentCallForm(request.POST)
         if form.is_valid():
             call = form.save(commit=False)
             call.save()
             return redirect('/')
         elif form_comment.is_valid():
             call_comment = form_comment.save(commit=False)
+            call_comment.comment_call = Call.objects.get(id=call_id)
+            call_comment.comment_date = datetime.datetime.now()
+            # call_comment.comment_user_id = auth.get_user(request).id
+            call_comment.comment_user = user
             call_comment.save()
-            return redirect('/')
+            return redirect('/call/get/%s/' % call_id)
     else:
         form = EditCallForm(instance=call)
-        # form_comment = CommentCallForm(instance=call)
-    return render(request, 'call_edit.html', {'form': form, 'form_comment' : form_comment, 'args': args})
+        # form_comment = CommentCallForm(initial={'comment_user': args['username']})
+    return render(request, 'call_edit.html', {'form': form,
+                                              'form_comment': form_comment,
+                                              'args': args})
+
+
+def call_edit(request, call_id=1):
+    args = {}
+    args['title_page'] = 'ЛОЭСК | Редактирование звонка'
+    # args['id'] = auth.get_user(request).id
+    # user_id = args['id']
+    user = User.objects.get(pk=auth.get_user(request).id)
+    args['call_edit'] = Call.objects.get(id=call_id)
+    args['call_comments'] = Comment.objects.filter(comment_call_id=call_id)
+    args['username'] = auth.get_user(request)
+    args['user_filial'] = user.profile.user_filial
+    args['user_otdel'] = user.profile.user_otdel
+    args['user_res'] = user.profile.user_res
+    args['user_group'] = request.user.groups.values_list('name', flat=True).first()
+    # TODO comment output
+    # args['call_'] = Call.objects.all()
+
+    # args['title_button'] = 'Сохранить изменения'
+    form_comment = CommentCallForm()
+    # HEADING
+    call = get_object_or_404(Call, pk=call_id)
+    if request.method == "POST":
+        form = EditCallForm(request.POST, request.FILES, instance=call)
+        form_comment = CommentCallForm(request.POST)
+        if form.is_valid():
+            call = form.save(commit=False)
+            call.save()
+            return redirect('/')
+        elif form_comment.is_valid():
+            call_comment = form_comment.save(commit=False)
+            call_comment.comment_call = Call.objects.get(id=call_id)
+            call_comment.comment_date = datetime.datetime.now()
+            call_comment.comment_user = user
+            # call_comment.comment_user = str(1)
+            call_comment.save()
+            return redirect('/call/get/%s/' % call_id)
+    else:
+        form = EditCallForm(instance=call)
+
+    if args['user_otdel'] != None:
+        form.fields['call_aim'].queryset = user.profile.user_otdel.reason_otdel_set
+    return render(request, 'call_edit.html', {'form': form,
+                                              'form_comment': form_comment,
+                                              'args': args})
+
 
 
 def new_call(request):
     args = {}
     args['title_page'] = 'ЛОЭСК | Новый звонок'
-    args['id'] = auth.get_user(request).id
-    user_id = args['id']
-    user = User.objects.get(pk=user_id)
+    # args['id'] = auth.get_user(request).id
+    # user_id = args['id']
+    user = User.objects.get(pk=auth.get_user(request).id)
     args['list_call'] = Call.objects.all()
     args['username'] = auth.get_user(request).username
     args['user_filial'] = user.profile.user_filial

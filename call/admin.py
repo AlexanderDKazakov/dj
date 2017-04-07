@@ -334,6 +334,11 @@ def export_xlsx(modeladmin, request, queryset):
 export_xlsx.short_description = u"Export XLSX"
 
 
+class CallInline(admin.StackedInline):
+    model = Comment
+    extra = 2
+
+
 class ProfileAdmin(admin.ModelAdmin):
     list_display = [ 'user',
                      # 'first_name',
@@ -368,10 +373,13 @@ class CallAdmin(admin.ModelAdmin):
                     'call_date_start',
                     'call_user_man',
                     ]
+    inlines = [CallInline]
+
     # list_editable = ['id']
 inlines = (AttachmentInlines,)
 admin.site.register(Call, CallAdmin)
 admin.site.register(Profile, ProfileAdmin)
+# admin.site.register(Comment)
 admin.site.register(Filial)
 admin.site.register(legalEntity)
 admin.site.register(reason_otdel, ReasonAdmin)

@@ -112,7 +112,6 @@ class Call(models.Model):
     call_kontact    = models.CharField(max_length=150, verbose_name='Контакты для связи:', blank=True, null=True)
     call_date_start = models.DateTimeField(default=timezone.now, verbose_name='Время открытия звонка:')
     call_date_end   = models.DateTimeField(verbose_name='Время закрытия звонка:', blank=True, null=True)
-    call_comment    = models.CharField(max_length=500, verbose_name='Комментарий:', blank=True, null=True)
     #### INSERTING DATA FROM FORM(INITIAL)
     call_user_man        = models.CharField(max_length=50, verbose_name='Логин оператора:', blank=True, null=True)
     # call_user_man_filial = models.CharField(max_length=100, verbose_name='Филиал оператора:', blank=True, null=True)
@@ -127,3 +126,18 @@ class Call(models.Model):
 
     def __str__(self):
         return self.call_title
+
+
+class Comment(models.Model):
+    class Meta:
+        db_table = "comments"
+
+    comment_text = models.TextField(verbose_name="Текст комментария:")
+    comment_date = models.DateTimeField(default=timezone.now, verbose_name='Время комментария:')
+    comment_user = models.ForeignKey(User, blank=True, null=True)
+    # NEED TO THINK AGAIN
+    # comment_user_man = models.CharField(max_length=200, verbose_name="Логин", blank=True, null=True)
+    comment_call = models.ForeignKey(Call)
+
+    def __str__(self):
+        return self.comment_text
