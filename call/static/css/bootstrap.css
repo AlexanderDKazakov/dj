@@ -63,12 +63,14 @@ input:focus {
   display:inline-block;
   color:#fff;
   text-decoration: none;
-  background-color: #ffc537;
+  /*background-color: #ffc537;*/
+  background-color: #5cb85c;
   height:35px;
 }
 .sort:hover {
   text-decoration: none;
-  background-color: #ff9400;
+  /*background-color: #ff9400;*/
+  background-color: #4cae4c;;
 }
 .sort:focus {
   outline:none;
@@ -401,7 +403,7 @@ th {
   }
   .btn > .caret,
   .dropup > .btn > .caret {
-    border-top-color: #000 !important;
+    border-top-collor: #000 !important;
   }
   .label {
     border: 1px solid #000;

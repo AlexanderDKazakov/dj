@@ -25,9 +25,10 @@
 
     {% for comment in args.call_comments %}
         <tr>
-            <td>
-                Дата: {{ comment.comment_date }} Логин: {{ comment.comment_user }} <h4>{{ comment.comment_text }}</h4>
+            <td width="50%">
+                {{ comment.comment_date }} | {{ comment.comment_user }} <h4>{{ comment.comment_text }}</h4>
             </td>
+{#            <td></td>#}
         </tr>
     {% endfor %}
         <tr>

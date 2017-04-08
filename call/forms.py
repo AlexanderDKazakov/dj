@@ -168,13 +168,13 @@ class DatePickerForm(forms.Form):
     # helper.label_class = 'label label-warning'  # this css class attribute will be added to all of the labels in your form. For instance, the "Username: " label will have 'col-md-3'
     helper.field_class = 'form-group'  # this css class attribute will be added to all of the input fields in your form. For isntance, the input text box for "Username" will have 'col-md-9'
     helper.form_method = 'post'
-    helper.form_action = 'export_excel_out/'
-    helper.add_input(Submit('submit', 'Подготовить отчёт', css_class='btn btn-success btn-lg '))
+    # helper.form_action = 'export_excel_out/'
+    helper.add_input(Submit('submit', 'Подготовить отчёт', css_class='btn btn-success btn-lg'))
 
     def __init__(self, *args, **kwargs):
         super(DatePickerForm, self).__init__(*args, **kwargs)
-        self.fields['date_from'].label = 'С'
-        self.fields['date_to'].label = 'ПО'
+        self.fields['date_from'].label = 'c'
+        self.fields['date_to'].label = 'по'
 
 
 class RedirectCallForm(forms.ModelForm):

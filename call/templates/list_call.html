@@ -1,7 +1,6 @@
 {% extends 'heading.html'%}
 {% block content %}
 {% load crispy_forms_tags %}
-
 <br>
 <div id="users">
 <table border="0">
@@ -38,19 +37,6 @@
                             </div>
                         </div>
                     </div>
-
-{#                    <a href="javascript:PopUpShow()"><button class="btn btn-default btn-lg">Отчёт</button></a>#}
-{#                    <div class="b-popup" id="popup1">#}
-{#                        <div class="b-popup-content">#}
-{#                            <p align="right" style="margin-right: 5px"><a href="javascript:PopUpHide()">Х</a></p>#}
-{#                            <form id="myform_requst" action="export_excel_out/" method="POST"> {% csrf_token %}#}
-{#                                <h1>Формирование отчёта</h1>#}
-{#                                        <h3>Можно дополнительные поля сюда вписать</h3>#}
-{#                                <h3>Отчётный период</h3>#}
-{#                                {% crispy form  %}#}
-{#                            </form>#}
-{#                        </div>#}
-{#                    </div>#}
                 {% endif %}
             </div>
         </td>
