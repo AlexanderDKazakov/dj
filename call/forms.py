@@ -118,7 +118,8 @@ class EditCallForm(forms.ModelForm):
         Field('call_user_man_otdel', readonly=True, style='display: none;'),
         FormActions(
             Submit('submit', 'Cохранить изменения', css_class='btn btn-success btn-lg'),
-            Button('cancel', 'Назад', css_class='btn btn-default btn-lg', onclick='history.go(-1);')
+            # Button('cancel', 'Назад', css_class='btn btn-default btn-lg', onclick='history.go(-1);')
+            HTML('<a class="btn btn-default btn-lg" href=/>Назад</a>'),
         )
     )
     def __init__(self, *args, **kwargs):

@@ -52,6 +52,12 @@ class reason_otdel(models.Model):
     def __str__(self):
         return self.rc_name
 
+# class Reason_Table_Num(models.Model):
+#     class Meta:
+#         db_table = "reason_table_num"
+#
+#     reason_table
+
 
 class Filial(models.Model):
     class Meta:
