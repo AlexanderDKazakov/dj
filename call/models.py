@@ -52,12 +52,16 @@ class reason_otdel(models.Model):
     def __str__(self):
         return self.rc_name
 
-# class Reason_Table_Num(models.Model):
-#     class Meta:
-#         db_table = "reason_table_num"
-#
-#     reason_table
+class Table_Num(models.Model):
+    class Meta:
+        db_table = "table_num"
 
+    table_name = models.CharField(max_length=350, verbose_name='Название стобца:', blank=True, null=True)
+    table_reason = models.ForeignKey(reason_otdel, on_delete=models.CASCADE)
+    table_num = models.CharField(max_length=100, verbose_name='Номер столбца:', blank=True, null=True)
+
+    def __str__(self):
+        return self.table_name
 
 class Filial(models.Model):
     class Meta:

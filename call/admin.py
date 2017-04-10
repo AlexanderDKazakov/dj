@@ -353,6 +353,13 @@ class ReasonAdmin(admin.ModelAdmin):
                      'otdel_id_id',
     ]
 
+class Table_NumAdmin(admin.ModelAdmin):
+    list_display = ['table_name',
+                    'table_reason',
+                    'table_num',
+                    ]
+
+
 class CallAdmin(admin.ModelAdmin):
     actions = [export_xls, export_xlsx]
     list_filter = ['call_entite',
@@ -380,6 +387,7 @@ inlines = (AttachmentInlines,)
 admin.site.register(Call, CallAdmin)
 admin.site.register(Profile, ProfileAdmin)
 # admin.site.register(Comment)
+admin.site.register(Table_Num, Table_NumAdmin)
 admin.site.register(Filial)
 admin.site.register(legalEntity)
 admin.site.register(reason_otdel, ReasonAdmin)
