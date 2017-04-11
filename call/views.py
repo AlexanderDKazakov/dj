@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.shortcuts import redirect
-from call.models import Call, User, reason_otdel, Comment
+from call.models import Call, User, reason_otdel, Comment, Table_Num
 from django.contrib import auth
 from django.shortcuts import get_object_or_404
 ### For form
@@ -46,47 +46,47 @@ def list_call(request):
         return render(request, 'list_call.html', {'args': args})
 
 
-def call_edit(request, call_id=1):
-    args = {}
-    args['title_page'] = 'ЛОЭСК | Редактирование звонка'
-    # args['id'] = auth.get_user(request).id
-    # user_id = args['id']
-    user = User.objects.get(pk=auth.get_user(request).id)
-    args['call_edit'] = Call.objects.get(id=call_id)
-    args['call_comments'] = Comment.objects.filter(comment_call_id=call_id)
-    args['username'] = auth.get_user(request)
-    args['user_filial'] = user.profile.user_filial
-    args['user_otdel'] = user.profile.user_otdel
-    args['user_res'] = user.profile.user_res
-    args['user_group'] = request.user.groups.values_list('name', flat=True).first()
-    # TODO comment output
-    # args['call_'] = Call.objects.all()
-
-    # args['title_button'] = 'Сохранить изменения'
-    form_comment = CommentCallForm()
-    # HEADING
-    call = get_object_or_404(Call, pk=call_id)
-    if request.method == "POST":
-        form = EditCallForm(request.POST, request.FILES, instance=call)
-        form_comment = CommentCallForm(request.POST)
-        if form.is_valid():
-            call = form.save(commit=False)
-            call.save()
-            return redirect('/')
-        elif form_comment.is_valid():
-            call_comment = form_comment.save(commit=False)
-            call_comment.comment_call = Call.objects.get(id=call_id)
-            call_comment.comment_date = datetime.datetime.now()
-            # call_comment.comment_user_id = auth.get_user(request).id
-            call_comment.comment_user = user
-            call_comment.save()
-            return redirect('/call/get/%s/' % call_id)
-    else:
-        form = EditCallForm(instance=call)
-        # form_comment = CommentCallForm(initial={'comment_user': args['username']})
-    return render(request, 'call_edit.html', {'form': form,
-                                              'form_comment': form_comment,
-                                              'args': args})
+# def call_edit(request, call_id=1):
+#     args = {}
+#     args['title_page'] = 'ЛОЭСК | Редактирование звонка'
+#     # args['id'] = auth.get_user(request).id
+#     # user_id = args['id']
+#     user = User.objects.get(pk=auth.get_user(request).id)
+#     args['call_edit'] = Call.objects.get(id=call_id)
+#     args['call_comments'] = Comment.objects.filter(comment_call_id=call_id)
+#     args['username'] = auth.get_user(request)
+#     args['user_filial'] = user.profile.user_filial
+#     args['user_otdel'] = user.profile.user_otdel
+#     args['user_res'] = user.profile.user_res
+#     args['user_group'] = request.user.groups.values_list('name', flat=True).first()
+#     # TODO comment output
+#     # args['call_'] = Call.objects.all()
+#
+#     # args['title_button'] = 'Сохранить изменения'
+#     form_comment = CommentCallForm()
+#     # HEADING
+#     call = get_object_or_404(Call, pk=call_id)
+#     if request.method == "POST":
+#         form = EditCallForm(request.POST, request.FILES, instance=call)
+#         form_comment = CommentCallForm(request.POST)
+#         if form.is_valid():
+#             call = form.save(commit=False)
+#             call.save()
+#             return redirect('/')
+#         elif form_comment.is_valid():
+#             call_comment = form_comment.save(commit=False)
+#             call_comment.comment_call = Call.objects.get(id=call_id)
+#             call_comment.comment_date = datetime.datetime.now()
+#             # call_comment.comment_user_id = auth.get_user(request).id
+#             call_comment.comment_user = user
+#             call_comment.save()
+#             return redirect('/call/get/%s/' % call_id)
+#     else:
+#         form = EditCallForm(instance=call)
+#         # form_comment = CommentCallForm(initial={'comment_user': args['username']})
+#     return render(request, 'call_edit.html', {'form': form,
+#                                               'form_comment': form_comment,
+#                                               'args': args})
 
 
 def call_edit(request, call_id=1):
@@ -299,6 +299,13 @@ def export_xls(request):
     wb.save(response)
     return response
 
+
+def aim_to_num(aim_call):
+    Table_Num_arg = Table_Num.objects.all()
+    table_num_int = (int(Table_Num_arg.filter(table_reason_id=aim_call.id)[0].table_num) - 1)
+    return table_num_int
+
+
 # TODO REDO export_excel_out!
 #   new list ==> new output.
 def export_excel_out(request):
@@ -396,6 +403,8 @@ def export_excel_out(request):
             'Обращение: Прочее',
             'Жалоба: Прочее',
         ]
+        Table_Num_dict = Table_Num.objects.all()
+
         # list_aim_call = ['Оказание услуг по передаче электрической энергии',
         #                  'Осуществление технологического присоединения',
         #                  'Коммерческий учет электрической энергии',
@@ -423,14 +432,13 @@ def export_excel_out(request):
         for i in range(0, 31):
             ws.write(6, i, str(i + 1))
         # ws.write(15,1, period_from)
-        ####### SOME TRYING
-        args = {}
+        # args = {}
         # args['id'] = auth.get_user(request).id
         # user_id = args['id']
         user = User.objects.get(pk=auth.get_user(request).id)
-        args['user_filial'] = user.profile.user_filial
-        user_filial = args['user_filial']
-        queryset = Call.objects.filter(call_user_man_filial=user_filial)
+        # args['user_filial'] = user.profile.user_filial
+        # user_filial = args['user_filial']
+        queryset = Call.objects.filter(call_user_man_filial=user.profile.user_filial)
         #######
         row_num = 6
         # columns = [
@@ -462,10 +470,12 @@ def export_excel_out(request):
         data_to_comparible=datetime.date(year_t, month_t, day_t)
         # data_to_comparible=datetime.date(data_to[6:], data_to[:2], data_to[3:5])
         for obj in queryset:
+            #  DATA FOR COMPARISON DATE
             day_c = int(str(obj.call_date_start)[8:10])
             month_c = int(str(obj.call_date_start)[5:7])
             year_c = int(str(obj.call_date_start)[:4])
             data_current = datetime.date(year_c, month_c, day_c)
+            # END DATA
             if (data_current <= data_to_comparible) and (data_current >= data_from_comparible):
                 row_num += 1
                 count_number += 1
@@ -479,8 +489,10 @@ def export_excel_out(request):
                 ]
                 for col_num in range(len(row)):
                     ws.write(row_num, col_num, row[col_num], font_style)
-                ws.write(row_num, 9 + list_aim_call.index(str(obj.call_aim)), '1')
+                # ws.write(row_num, 9 + list_aim_call.index(str(obj.call_aim)), '1')
+                ws.write(row_num, aim_to_num(obj.call_aim), '1')
                 ws.write(row_num, 26, '1')  # call answer get at the time
+
         # ws.write(30,1, data_from)
         # ws.write(31,1, int(data_from[:2])) # dd
         # ws.write(32,1, int(data_from[3:5])) # mm
